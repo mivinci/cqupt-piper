@@ -15,8 +15,8 @@ class Config:
     def __init__(self):
         self.platform: str = sys.platform
         self.ipv4addr: str = gethostbyname(gethostname())
-        self.dirpath: str = f'{Path.home()}/.piper'
-        self.cf_path: str = f'{self.dirpath}/piper'
+        self.dirpath:  str = f'{Path.home()}/.piper'
+        self.cf_path:  str = f'{self.dirpath}/piper'
 
         makedir(self.dirpath)
         self.user: dict = Auth.getuser(self)
