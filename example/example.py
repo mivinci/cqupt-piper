@@ -1,4 +1,4 @@
-from ..CQUPTPiper.piper import Piper
+from CQUPTPiper.piper import Piper
 
 
 if __name__ == '__main__':

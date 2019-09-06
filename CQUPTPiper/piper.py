@@ -1,15 +1,17 @@
 from requests import Session
 
-from CQUPTPiper.auth import Auth
 from CQUPTPiper.config import Config
 
 
 class Piper:
     def __init__(self):
         self.session: Session = Session()
-        self.config:  Config = Config()
-        self.user = None
+        self.config: Config = Config()
 
     def authorize(self):
-        Auth.signin(self)
+        pass
 
+
+if __name__ == '__main__':
+    piper = Piper()
+    print(piper.config.user)
