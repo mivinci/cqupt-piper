@@ -3,6 +3,7 @@ from requests import Session
 from CQUPTPiper.urls import Url
 from CQUPTPiper.config import Config
 from CQUPTPiper.login import Login
+from CQUPTPiper.cli import get_parser
 
 
 class Piper:
@@ -18,10 +19,14 @@ class Piper:
         pass
 
 
+def cli():
+    get_parser()
+
+
 if __name__ == '__main__':
-    piper = Piper()
+    # piper = Piper()
+    # piper.run()
 
-    piper.run()
-
-    print("Bye!")
+    # print("Bye!")
+    cli()
 
