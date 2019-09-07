@@ -1,9 +1,10 @@
 from requests import Session
+from argparse import ArgumentParser
 
 from CQUPTPiper.urls import Url
 from CQUPTPiper.config import Config
-from CQUPTPiper.login import Login
-from CQUPTPiper.cli import get_parser
+from CQUPTPiper.login import Login, login_execute
+from CQUPTPiper.cli import ArgParser
 
 
 class Piper:
@@ -11,22 +12,24 @@ class Piper:
         self.session: Session = Session()
         self.config: Config = Config()
         self.urls: Url = Url()
+        self.args: ArgumentParser = ArgParser()
 
     def login(self):
-        Login(self)
+        login = Login(self)
+        login_execute(login)
 
     def run(self):
         pass
 
 
 def cli():
-    get_parser()
+    piper = Piper()
+    piper.login()
+    if piper.args.manual:
+        print("manual")
+
+    print("Bye!")
 
 
 if __name__ == '__main__':
-    # piper = Piper()
-    # piper.run()
-
-    # print("Bye!")
     cli()
-

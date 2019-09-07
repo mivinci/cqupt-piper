@@ -17,6 +17,7 @@ class Config:
         self.ipv4addr: str = gethostbyname(gethostname())
         self.dirpath:  str = f'{Path.home()}/.piper'
         self.cf_path:  str = f'{self.dirpath}/piper'
+        self.captcha_path: str = f'{self.dirpath}/captcha.png'
 
         makedir(self.dirpath)
         self.user: dict = Auth.getuser(self)
