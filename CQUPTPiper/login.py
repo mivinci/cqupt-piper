@@ -26,7 +26,7 @@ class Login:
         from PIL import Image
         im = Image.open(self.config.captcha_path)
         im.show()
-        self.captcha_text = input("Enter captcha: ")
+        self.captcha_text = input(self.config.instruction.ENTER_CAPTCHA)
 
     def strike(self) -> bool:
         resp = self.session.post(self.urls.URL_CHECK_LOGIN,
@@ -37,39 +37,39 @@ class Login:
                                     'vCode': self.captcha_text
                                 }).text
         resp = eval(resp)
-        if resp['info'] != 'ok!':  # This if expression does not work properly
-            print(f"Login Failed: {resp['info']}")
-            print('Retrying ...')
+        if resp['info'] != 'ok！':
+            print(f"{self.config.instruction.LOGIN_FAILED}: {resp['info']}")
+            print(self.config.instruction.RETRYING)
             return False
-        print('Login Successfully!')
+        print(self.config.instruction.LOGIN_SUCCESSFULLY)
         return True
 
 
-def execute_recognize_captcha_manually(login: Login):
+def execute_recognize_captcha_manually(piper, login: Login):
     try:
         login.recognize_captcha_manually()
     except Exception:
         raise
 
 
-def execute_recognize_captcha(login: Login):
+def execute_recognize_captcha(piper, login: Login):
     try:
         login.recognize_captcha()
-        print(f"Recognizing captcha: {login.captcha_text}")
+        print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
         while not login.captcha_text or len(login.captcha_text) != 5 or not login.captcha_text.isdigit():
             login.recognize_captcha()
-            print(f"Recognizing captcha: {login.captcha_text}")
+            print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
     except Exception:
         raise
     
 
-def login_execute(login: Login):
+def login_execute(piper, login: Login):
     try:
         login.set_phpsessid()
         if login.args.manual:
-            execute_recognize_captcha_manually(login)
+            execute_recognize_captcha_manually(piper, login)
         else:
-            execute_recognize_captcha(login)
+            execute_recognize_captcha(piper, login)
         login.strike()
     except Exception:
         raise

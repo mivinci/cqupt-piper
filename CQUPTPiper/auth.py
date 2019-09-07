@@ -4,10 +4,20 @@ from CQUPTPiper.fr import b64_fwrite, b64_fread
 
 KEY_STUID = 'stuid'
 KEY_PASS = 'password'
+KEY_LANG = 'lang'
+
+VALUE_LANG_SIMPLIFIED_CHINESE = 'ch'
+VALUE_LANG_ENGLISH = 'en'
 
 
-def isconfig(config: dict) -> bool:
-    if config.get('stuid') and config.get('password'):
+def hasuserconfig(config: dict) -> bool:
+    if config.get(KEY_STUID) and config.get(KEY_PASS):
+        return True
+    return False
+
+
+def haslangconfig(config: dict) -> dict:
+    if config.get(KEY_LANG) in [VALUE_LANG_ENGLISH, VALUE_LANG_SIMPLIFIED_CHINESE]:
         return True
     return False
 
@@ -21,15 +31,27 @@ def writeconfig(filename: str, config: dict):
 
 
 class Auth:
-    user = dict()
+    config = dict()
 
     @classmethod
     def getuser(cls, config):
         if path.isfile(config.cf_path):
-            cls.user = readconfig(config.cf_path)
-            if isconfig(cls.user):
-                return cls.user
-        cls.user[KEY_STUID] = input("Username: ")
-        cls.user[KEY_PASS] = input("Password: ")
-        writeconfig(config.cf_path, cls.user)
-        return cls.user
+            cls.config = readconfig(config.cf_path)
+            if hasuserconfig(cls.config):
+                return cls.config
+        print(config.instruction.BEFORE_AUTHORIZATION)
+        cls.config[KEY_STUID] = input(config.instruction.USERNAME)
+        cls.config[KEY_PASS] = input(config.instruction.PASSWORD)
+        writeconfig(config.cf_path, cls.config)
+        return cls.config
+
+    @classmethod
+    def getlang(cls, config):
+        if path.isfile(config.cf_path):
+            cls.config = readconfig(config.cf_path)
+            if haslangconfig(cls.config):
+                return cls.config
+        option: str = input("Keep on using English? [y/N]: ")
+        cls.config[KEY_LANG] = VALUE_LANG_ENGLISH if option.lower() == 'y' else VALUE_LANG_SIMPLIFIED_CHINESE
+        writeconfig(config.cf_path, cls.config)
+        return cls.config.get(KEY_LANG)

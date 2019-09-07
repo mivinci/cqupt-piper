@@ -16,7 +16,7 @@ class Piper:
 
     def login(self):
         login = Login(self)
-        login_execute(login)
+        login_execute(self, login)
 
     def run(self):
         pass
