@@ -29,7 +29,11 @@ class Piper:
 
 def cli():
     args = arg_parser()
+    if args.l:
+        config = Config()
+        config.setlang(str(args.l))
+
     if noargs() or args.manual:
         piper = Piper(args)
-        piper.login()
+        # piper.login()
         piper.run()

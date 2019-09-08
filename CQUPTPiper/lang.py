@@ -1,3 +1,12 @@
+from enum import Enum
+
+class Language(Enum):
+    EN = 'en'
+    CH = 'ch'
+
+    def __str__(self):
+        return self.value
+
 class EN:
     USERNAME = 'Username: '
     PASSWORD = 'Password: '
