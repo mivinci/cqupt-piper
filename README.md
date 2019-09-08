@@ -78,16 +78,21 @@ Then you will see something like a shell for you to input your commands.
 
 
 
+### Contribution
+
+You can help create better `crawlers` under directory [crawlers](https://github.com/Mivinci/cqupt-piper/tree/master/CQUPTPiper/crawlers). 
+
+Fork this repo and commit your request!
+
 ## Todo
 
 - [x] **Sign in to jwzx.cqupt.edu.cn**
     - [x] Manually&Antomatically recognizing captcha
 
-- [ ] **Get Scripts**
+- [ ] **Get Scripts** (Waiting for ya!)
 
 ## License
 
 © XJJ, 2019~datetime.now()
 
 Released under the [MIT License](https://github.com/Mivinci/cqupt-piper/blob/master/LICENSE)
-

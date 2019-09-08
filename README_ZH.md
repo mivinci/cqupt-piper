@@ -82,14 +82,18 @@ piper
 
 
 
+### 提交你的代码
 
+你可以为这个项目构建更好的爬虫程序, 见[目录](https://github.com/Mivinci/cqupt-piper/tree/master/CQUPTPiper/crawlers).
 
-## Todo
+Fork 这个仓库, 提交你的分支!
+
+## 构建
 
 - [x] **登录教务在线**
     - [x] 手动&自动识别验证码
 
-- [ ] **获取信息**
+- [ ] **获取信息** (Waiting for ya!)
 
 ## License
 
