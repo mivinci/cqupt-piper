@@ -14,9 +14,9 @@
 
 ## 安装
 
-先确保您的设备上安装有 Python3+ 和 pip 工具
+确保您的设备上已安装有 Python3+ 和 pip.
 
-安装:
+安装 CQUPTPiper:
 
 ```bash
 pip install CQUPTPiper

@@ -16,6 +16,10 @@
 
 ## Installation
 
+Make sure you have Python3+ and pip tool installed in your device.
+
+Install CQUPTPiper:
+
 ```bash
 pip install CQUPTPiper
 ```
