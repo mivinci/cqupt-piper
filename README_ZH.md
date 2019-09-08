@@ -24,7 +24,7 @@ pip install CQUPTPiper
 
 ## 使用
 
-Windows 的同学可打开 cmd 执行下面命令
+Windows 的同学可打开 cmd 或 Power Shell 执行下面命令
 
 MacOS 和 Linux 的同学随便您怎么搞
 
