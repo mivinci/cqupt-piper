@@ -31,10 +31,11 @@ class Config:
 
         self.config: dict = Auth.getconfig(self)
 
-
-    @authorize
     def setlang(self, lang: str):
         self.config.update(lang=lang)
         writeconfig(self.cf_path, self.config)
         print(f'Switched to {VALUE_EXPLANATION.get(self.config.get(KEY_LANG))}')
+
+    @authorize
+    def setuser(self): pass
         

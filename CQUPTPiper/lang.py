@@ -19,6 +19,9 @@ class EN:
     RECOGNIZING_CAPTCHA = 'Recognizing captcha'
 
     BEFORE_AUTHORIZATION = 'To start using Piper, we need to know who you are for security.'
+    AUTHORIZATION_FAILED = 'Wrong password!'
+
+    EXIT = 'Exit'
 
 
 class CH:
@@ -33,4 +36,7 @@ class CH:
     RECOGNIZING_CAPTCHA = '正在识别验证码'
 
     BEFORE_AUTHORIZATION = '第一次使用需验证您的身份.'
+    AUTHORIZATION_FAILED = '密码错误!'
+
+    EXIT = '已退出'
    
