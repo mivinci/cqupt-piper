@@ -10,7 +10,7 @@
 
 ![](https://img.shields.io/badge/build-passing-brightgreen) ![](https://img.shields.io/badge/license-MIT-blue) ![](https://img.shields.io/badge/Python-3%2B-yellowgreen)
 
-🤯 CQUPT Piper 是一个 [重邮教务在线](jwzx.cqupt.edu.cn) 查询的命令行工具. (构建中)
+🤯 CQUPT Piper 是一个查询 [重邮教务在线](jwzx.cqupt.edu.cn) 的命令行工具. ([crawlers](https://github.com/Mivinci/cqupt-piper/tree/master/CQUPTPiper/crawlers) 构建中)
 
 ## 安装
 
