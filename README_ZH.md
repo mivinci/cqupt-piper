@@ -10,55 +10,59 @@
 
 ![](https://img.shields.io/badge/build-passing-brightgreen) ![](https://img.shields.io/badge/license-MIT-blue) ![](https://img.shields.io/badge/Python-3%2B-yellowgreen)
 
-🤯 CQUPT Piper is a command line tool to get info from [jwzx.cqupt.edu.cn](jwzx.cqupt.edu.cn). (Wired On)
+🤯 CQUPT Piper 是一个 [重邮教务在线](jwzx.cqupt.edu.cn) 查询的命令行工具. (构建中)
 
-[简体中文](https://github.com/Mivinci/cqupt-piper/blob/master/README_ZH.md)
+## 安装
 
-## Installation
+先确保您的设备上安装有 Python3+ 和 pip 工具
+
+安装:
 
 ```bash
 pip install CQUPTPiper
 ```
 
-## Usage
+## 使用
 
-Just run:
+Windows 的同学可打开 cmd 执行下面命令
+
+MacOS 和 Linux 的同学随便您怎么搞
 
 ```bash
 piper
 ```
 
-And you will go through an authorization if it is the first time you use it.
+第一次使用会先进行在校学生身份验证
 
-Then you will see something like a shell for you to input your commands.
+验证成功后便可开始使用, 你可以执行 help 查看可使用的指令
 
-### Get Scripts
+### 获取信息
 
-##### Get your photo
+##### 获取你的照片
 
 ```bash
 > get photo
 ```
 
-##### Get the photo of other students
+##### 获取其他同学的照片
 
 ```bash
 > get photo 2017213056
 ```
 
-##### Get the score of a school-year
+##### 获取某一学年的分数
 
 ```bash
 > get score 2018
 ```
 
-##### Get the rank of a school-year
+##### 获取某一学年的排名
 
 ```bash
 > get rank 2018
 ```
 
-##### Get the tuition fee of a school-year
+##### 获取某一学年学费
 
 ```bash
 > get fee 2018
@@ -68,7 +72,7 @@ Then you will see something like a shell for you to input your commands.
 
 ## Todo
 
-- [ ] **Get Scripts**
+- [ ] **获取信息**
 
 ## License
 
