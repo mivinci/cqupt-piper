@@ -46,16 +46,22 @@ Then you will see something like a shell for you to input your commands.
 > get photo 2017213056
 ```
 
-##### Get the score of a school-year
+##### Get the credit obained till now
 
 ```bash
-> get score 2018
+> get credit
 ```
 
-##### Get the rank of a school-year
+##### Get the credit of a school-year
 
 ```bash
-> get rank 2018
+> get credit 2018
+```
+
+##### Get the gpa of a school-year
+
+```bash
+> get gpa 2018
 ```
 
 ##### Get the tuition fee of a school-year
@@ -64,9 +70,18 @@ Then you will see something like a shell for you to input your commands.
 > get fee 2018
 ```
 
+##### Get the tasks of the current semester
+
+```bash
+> get tasks
+```
+
 
 
 ## Todo
+
+- [x] **Sign in to jwzx.cqupt.edu.cn**
+    - [x] Manually&Antomatically recognizing captcha
 
 - [ ] **Get Scripts**
 
@@ -75,3 +90,4 @@ Then you will see something like a shell for you to input your commands.
 © XJJ, 2019~datetime.now()
 
 Released under the [MIT License](https://github.com/Mivinci/cqupt-piper/blob/master/LICENSE)
+
