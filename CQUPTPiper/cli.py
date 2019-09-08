@@ -16,3 +16,12 @@ def noargs():
 
 def isquit(cmd: str) -> bool:
     return cmd == 'quit' or cmd == 'exit'
+
+
+class Argument:
+    name: str
+
+
+class SubCommand:
+    def __init__(self):
+        self.name: str = None

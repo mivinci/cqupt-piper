@@ -1,4 +1,5 @@
 from CQUPTPiper.urls import Url
+from CQUPTPiper.fr import flush_print
 
 
 class Login:
@@ -55,21 +56,26 @@ def execute_recognize_captcha_manually(piper, login: Login):
 def execute_recognize_captcha(piper, login: Login):
     try:
         login.recognize_captcha()
-        print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
+        flush_print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
         while not login.captcha_text or len(login.captcha_text) != 5 or not login.captcha_text.isdigit():
             login.recognize_captcha()
-            print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
+            flush_print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
+        print('')
     except Exception:
         raise
     
 
 def login_execute(piper, login: Login):
-    try:
-        login.set_phpsessid()
+    def recognize_captcha(piper, login: Login):
         if login.args.manual:
             execute_recognize_captcha_manually(piper, login)
         else:
             execute_recognize_captcha(piper, login)
-        login.strike()
+
+    try:
+        login.set_phpsessid()
+        recognize_captcha(piper, login)
+        while not login.strike():
+            recognize_captcha(piper, login)
     except Exception:
         raise

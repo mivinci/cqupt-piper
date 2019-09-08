@@ -1,5 +1,6 @@
 import base64
 from os import remove
+from sys import stdout
 
 
 def b64enc(s: any) -> str:
@@ -27,3 +28,8 @@ def b64_fread(filename: str) -> str:
     except FileExistsError:
         remove(filename)
         raise
+
+
+def flush_print(s: str):
+    print(s)
+    stdout.write("\033[F")  # Cursor up one line

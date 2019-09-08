@@ -31,5 +31,5 @@ def cli():
     args = arg_parser()
     if noargs() or args.manual:
         piper = Piper(args)
-        # piper.login()
+        piper.login()
         piper.run()
