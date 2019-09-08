@@ -21,6 +21,7 @@ class Piper:
         login_execute(self, login)
 
     def run(self):
+        print(self.config.instruction.SUBCOMMAND_INSTRUCTION)
         while not isquit(self.command):
             self.command = input('> ')
             print(self.command)

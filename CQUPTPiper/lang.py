@@ -21,6 +21,7 @@ class EN:
     BEFORE_AUTHORIZATION = 'To start using Piper, we need to know who you are for security.'
     AUTHORIZATION_FAILED = 'Wrong password!'
 
+    SUBCOMMAND_INSTRUCTION = 'You can run "help" to view available commands.'
     EXIT = 'Exit'
 
 
@@ -38,5 +39,6 @@ class CH:
     BEFORE_AUTHORIZATION = '第一次使用需验证您的身份.'
     AUTHORIZATION_FAILED = '密码错误!'
 
+    SUBCOMMAND_INSTRUCTION = '输入 help 查看可执行指令'
     EXIT = '已退出'
    

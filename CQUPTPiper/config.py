@@ -3,7 +3,7 @@ from os import path, mkdir
 from socket import gethostname, gethostbyname
 
 from CQUPTPiper.decorators import authorize
-from CQUPTPiper.auth import Auth, writeconfig, KEY_LANG, VALUE_EXPLANATION
+from CQUPTPiper.auth import Auth, writeconfig, KEY_LANG, VALUE_EXPLANATION, VALUE_LANG_SIMPLIFIED_CHINESE
 from CQUPTPiper.lang import CH, EN
 from CQUPTPiper import PIPER_CAPTCHA_PATH, PIPER_DIR, PIPER_PATH
 
@@ -26,7 +26,7 @@ class Config:
         makedirifnexists(self.dirpath)
 
         self.lang: str = Auth.getlang(self)
-        self.instruction = CH if self.lang == 'ch' else EN
+        self.instruction = CH if self.lang == VALUE_LANG_SIMPLIFIED_CHINESE else EN
         self.user: dict = Auth.getuser(self)
 
         self.config: dict = Auth.getconfig(self)
