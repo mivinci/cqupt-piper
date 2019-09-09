@@ -31,6 +31,7 @@ class Config:
 
         self.config: dict = Auth.getconfig(self)
 
+
     def setlang(self, lang: str):
         self.config.update(lang=lang)
         writeconfig(self.cf_path, self.config)

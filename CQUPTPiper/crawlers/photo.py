@@ -1,4 +1,5 @@
 from CQUPTPiper.piper import Piper
+from CQUPTPiper.subcommand import NameSpace
 
 """
 Target Url: 'http://jwzx.cqu.pt/showstupic.php?xh={stu_id}'
@@ -11,8 +12,19 @@ Parameter: 'piper' contains attribute that may be needed:
     urls:    has the necessary jwzx urls for crawling data
 """
 class PhotoCrawler:
-    def __init__(self, stuid: str, piper: Piper):
-        self.stuid = stuid
+    def __init__(self, piper: Piper, namespace: NameSpace):
+        """
+        If user input 'get photo 2018213056 -s -g'
+        namespace will be assigned to a dict:
+        {
+            'get': {
+                'option': 'photo',
+                'argument': '2018213056',
+                'flags': ['-s', '-g'],
+            }
+        }
+        """
+        self.namespace = namespace
         self.piper = piper
         """
         You can start coding like

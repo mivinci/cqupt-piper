@@ -1,4 +1,7 @@
 from enum import Enum
+from CQUPTPiper import PIPER_PATH
+from CQUPTPiper.auth import readconfig, KEY_LANG, VALUE_LANG_ENGLISH
+
 
 class Language(Enum):
     EN = 'en'
@@ -21,8 +24,13 @@ class EN:
     BEFORE_AUTHORIZATION = 'To start using Piper, we need to know who you are for security.'
     AUTHORIZATION_FAILED = 'Wrong password!'
 
-    SUBCOMMAND_INSTRUCTION = 'You can run "help" to view available commands.'
+    SUBCOMMAND_INSTRUCTION = "You can run 'help' to view available commands."
     EXIT = 'Exit'
+
+    ERROR_UNRECOGNIZED_SUBCOMMAND = 'Unrecognized command'
+    ERROR_INVALID_OPTION = 'Invalid option'
+    ERROR_INVALID_ARGUMENT = 'Invalid argument'
+    ERROR_NO_OPTION = 'Option is required'
 
 
 class CH:
@@ -41,4 +49,11 @@ class CH:
 
     SUBCOMMAND_INSTRUCTION = '输入 help 查看可执行指令'
     EXIT = '已退出'
+
+    ERROR_UNRECOGNIZED_SUBCOMMAND = '错误命令'
+    ERROR_INVALID_OPTION = '无效选项'
+    ERROR_INVALID_ARGUMENT = '无效参数'
+    ERROR_NO_OPTION = '需要输入选项'
    
+
+Instruction: CH or EN = EN if readconfig(PIPER_PATH).get(KEY_LANG) == VALUE_LANG_ENGLISH else CH

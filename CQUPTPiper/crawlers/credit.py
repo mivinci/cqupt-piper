@@ -1,4 +1,5 @@
 from CQUPTPiper.piper import Piper
+from CQUPTPiper.subcommand import NameSpace
 
 """
 Target Url: 'http://jwzx.cqu.pt/student/xkxfTj.php' with id='AxfTjTable'
@@ -30,8 +31,19 @@ If year not specified:
 You DON'T have get the result formatted 100 percent like this.
 """
 class CreditCrawler:
-    def __init__(self, year: int, piper: Piper):
-        self.year = year
+    def __init__(self, namespace: NameSpace, piper: Piper):
+        """
+        If user input 'get credit 2018 -s -g'
+        namespace will be assigned to a dict:
+        {
+            'get': {
+                'option': 'credit',
+                'argument': '2018',
+                'flags': ['-s', '-g'],
+            }
+        }
+        """
+        self.namespace = namespace
         self.piper = piper
         """
         You can start coding like

@@ -14,5 +14,5 @@ def authorize(func):
             if not config.get(KEY_PASS) == getpass(prompt=instruction.PASSWORD):
                 Log.fatal(instruction.AUTHORIZATION_FAILED)
         except KeyboardInterrupt:
-            print('')
+            print('\nBye!')
     return func_wrapper

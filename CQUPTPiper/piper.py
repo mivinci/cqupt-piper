@@ -1,10 +1,12 @@
 from requests import Session
 from argparse import ArgumentParser
 
-from CQUPTPiper.cli import arg_parser, noargs, isquit
+from CQUPTPiper.cli import arg_parser, noargs, subcommand_parser
 from CQUPTPiper.urls import Url
+from CQUPTPiper.log import Log
 from CQUPTPiper.config import Config
 from CQUPTPiper.login import Login, login_execute
+from CQUPTPiper.subcommand import isquit
 
 
 class Piper:
@@ -21,10 +23,21 @@ class Piper:
         login_execute(self, login)
 
     def run(self):
+        subcommand = subcommand_parser()
         print(self.config.instruction.SUBCOMMAND_INSTRUCTION)
         while not isquit(self.command):
             self.command = input('> ')
-            print(self.command)
+            if self.command:
+                # I don't wanna write Golang-like code in Python
+                # But it works goddamn we!!
+                namespace, err = subcommand.parse(self.command)
+                if err:
+                    Log.error(err)
+                if namespace:
+                    # Connect to the Crawler.
+                    # Connect to the Crawler.
+                    # Connect to the Crawler.
+                    print(namespace)
         print('Bye!')
 
 
@@ -36,5 +49,5 @@ def cli():
 
     if noargs() or args.manual:
         piper = Piper(args)
-        piper.login()
+        # piper.login()
         piper.run()

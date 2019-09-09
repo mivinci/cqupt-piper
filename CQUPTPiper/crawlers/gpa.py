@@ -1,4 +1,5 @@
 from CQUPTPiper.piper import Piper
+from CQUPTPiper.subcommand import NameSpace
 
 """
 Target Url: 'http://jwzx.cqu.pt/student/chengjiPm.php' 
@@ -30,8 +31,19 @@ If year not specified:
 You DON'T have get the result formatted 100 percent like this.
 """
 class GPACrawler:
-    def __init__(self, year: int, piper: Piper):
-        self.year = year
+    def __init__(self, piper: Piper, namespace: NameSpace):
+        """
+        If user input 'get gpa 2018 -s -g'
+        namespace will be assigned to a dict:
+        {
+            'get': {
+                'option': 'gpa',
+                'argument': '2018',
+                'flags': ['-s', '-g'],
+            }
+        }
+        """
+        self.namespace = namespace
         self.piper = piper
         """
         You can start coding like

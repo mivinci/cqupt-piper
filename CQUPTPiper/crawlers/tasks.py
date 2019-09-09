@@ -1,4 +1,5 @@
 from CQUPTPiper.piper import Piper
+from CQUPTPiper.subcommand import NameSpace
 
 """
 Target Url: 'http://jwzx.cqu.pt/student/ksap.php'
@@ -20,7 +21,19 @@ which prints result like
 You DON'T have get the result formatted 100 percent like this.
 """
 class PhotoCrawler:
-    def __init__(self, piper: Piper):
+    def __init__(self, piper: Piper, namespace: NameSpace):
+        """
+        If user input 'get tasks 2018 -s -g'
+        namespace will be assigned to a dict:
+        {
+            'get': {
+                'option': 'tasks',
+                'argument': '2018',
+                'flags': ['-s', '-g'],
+            }
+        }
+        """
+        self.namespace = namespace
         self.piper = piper
         """
         You can start coding like

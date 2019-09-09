@@ -1,6 +1,7 @@
 from sys import argv
 from argparse import ArgumentParser
 from CQUPTPiper.lang import Language
+from CQUPTPiper.subcommand import SubCommand
 from CQUPTPiper import __version__, __description__
 
 
@@ -12,18 +13,19 @@ def arg_parser() -> ArgumentParser:
     return parser.parse_args()
 
 
-def noargs():
+def noargs() -> bool:
     return len(argv) == 1
 
 
-def isquit(cmd: str) -> bool:
-    return cmd == 'quit' or cmd == 'exit'
 
+__version__ = '0.0.1'
+__author__ = 'XJJ, LCM'
+__date__ = '2019.9'
+__description__ = f'Crawler v{__version__} @{__author__} {__date__}'
 
-class Argument:
-    name: str
-
-
-class SubCommand:
-    def __init__(self):
-        self.name: str = None
+def subcommand_parser():
+    subcmd = SubCommand(__description__, __version__)
+    group = subcmd.add_group("get")
+    group.add_argument("photo", "-p", "crawl photo of student", type=int)
+    group.add_argument("credit", "-c", "crawl credit of a school-year")
+    return subcmd

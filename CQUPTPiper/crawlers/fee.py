@@ -1,4 +1,5 @@
 from CQUPTPiper.piper import Piper
+from CQUPTPiper.subcommand import NameSpace
 
 """
 Target Url: 'http://jwzx.cqu.pt/student/zc.php' with id='AxfTjTable'
@@ -21,8 +22,19 @@ which prints result like
 You DON'T have get the result formatted 100 percent like this.
 """
 class FeeCrawler:
-    def __init__(self, year: int, piper: Piper):
-        self.year = year
+    def __init__(self, piper: Piper, namespace: NameSpace):
+        """
+        If user input 'get fee 2018 -s -g'
+        namespace will be assigned to a dict:
+        {
+            'get': {
+                'option': 'fee',
+                'argument': '2018',
+                'flags': ['-s', '-g'],
+            }
+        }
+        """
+        self.namespace = namespace
         self.piper = piper
         """
         You can start coding like
