@@ -38,7 +38,7 @@ class Piper:
                     # Connect to the Crawler.
                     # Connect to the Crawler.
                     print(namespace)
-        print('Bye!')
+        print('\nBye!\n')
 
 
 def cli():

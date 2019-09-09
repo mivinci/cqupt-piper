@@ -5,6 +5,7 @@ from CQUPTPiper.error import Error
 KEY_TYPE = 'type'
 KEY_HELP = 'help'
 KEY_ISFLAG = 'isflag'
+KEY_ARGNAME = 'arg_name'
 KEY_ALLOW_NOARGS = 'allow_noargs'
 
 KEY_FLAGS = 'flags'
@@ -43,12 +44,14 @@ class OptionGroup:
     def add_argument(self, 
                     name: str, 
                     short: str,
-                    help: str, 
+                    help: str,
                     type: type = str,
+                    argname: str = None,
                     allownoargs: bool = True, 
                     isflag: bool = False):
         self.subcommand[self.name][name] = {
             KEY_ALLOW_NOARGS: allownoargs,
+            KEY_ARGNAME: argname,
             KEY_ISFLAG: isflag,
             KEY_HELP: help,
             KEY_TYPE: type
@@ -134,7 +137,10 @@ class SubCommand:
         return NameSpace(self.commands, cmd).parse()
 
     def print_help(self):
-        print(self.description)
-        print('Usage: command option <argument>')
-        print('Todo ...')
-        # print(self.commands)
+        # print(self.description)
+        print('Usage: command option <argument>\n')
+        for kc, vc in self.commands.items():
+            for ko, vo in vc.items():
+                if ko[0] != '-':
+                    print("    %s %s\t<%s>\t%s" %(kc, ko, vo[KEY_ARGNAME], vo['help']))
+            print('\n示例: %s credit 2018' %kc)

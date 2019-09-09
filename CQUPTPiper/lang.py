@@ -56,4 +56,5 @@ class CH:
     ERROR_NO_OPTION = '需要输入选项'
    
 
-Instruction: CH or EN = EN if readconfig(PIPER_PATH).get(KEY_LANG) == VALUE_LANG_ENGLISH else CH
+Lang: str = readconfig(PIPER_PATH).get(KEY_LANG)
+Instruction: CH or EN = EN if Lang == VALUE_LANG_ENGLISH else CH
