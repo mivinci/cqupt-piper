@@ -21,7 +21,7 @@ class Proxy:
     URL_TASKS = 'http://jwzx.cqu.pt/student/ksap.php'
 
     # 学生照片
-    URL_STUDENT_PHOTO = 'http://jwzx.cqu.pt/showstupic.php?xh={stuid}'
+    URL_STUDENT_PHOTO = 'http://jwzx.cqu.pt/showstupic.php?xh='
 
 
 class Internal:

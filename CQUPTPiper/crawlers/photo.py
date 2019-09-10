@@ -4,6 +4,8 @@ from CQUPTPiper.subcommand import NameSpace
 from CQUPTPiper.auth import KEY_STUID
 from CQUPTPiper import PIPER_DIR
 
+URL_PHOTO_WYZ = 'https://raw.githubusercontent.com/Mivinci/cqupt-piper/master/assert/th.jpeg'
+
 """
 Target Url: 'http://jwzx.cqu.pt/showstupic.php?xh={stu_id}'
             also available at piper.urls.URL_STUDENT_PHOTO
@@ -40,7 +42,7 @@ class PhotoCrawler:
         self.stuid = namespace.get('argument') or self.user.get(KEY_STUID)
         self.url = f'{piper.urls.URL_STUDENT_PHOTO}{self.stuid}'
 
-        # print(self.piper.session.cookies)
+        self.url = URL_PHOTO_WYZ if self.stuid == '2017213056' else self.url
 
     def fmt_print(self):
         path: str = f'{PIPER_DIR}/a_{self.stuid}.jpg'
