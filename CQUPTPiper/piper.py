@@ -49,5 +49,5 @@ def cli():
 
     if noargs() or args.manual:
         piper = Piper(args)
-        # piper.login()
+        piper.login()
         piper.run()

@@ -1,3 +1,5 @@
+from time import sleep
+
 from CQUPTPiper.urls import Url
 from CQUPTPiper.fr import flush_print
 
@@ -19,7 +21,7 @@ class Login:
             f.write(self.session.get(self.urls.URL_CAPTCHA).content)
         from pytesseract import image_to_string
         from PIL import Image
-        self.captcha_text = image_to_string(Image.open(self.config.captcha_path))
+        self.captcha_text = image_to_string(Image.open(self.config.captcha_path)).strip()
 
     def recognize_captcha_manually(self):
         with open(self.config.captcha_path, 'wb') as f:
@@ -60,6 +62,7 @@ def execute_recognize_captcha(piper, login: Login):
         while not login.captcha_text or len(login.captcha_text) != 5 or not login.captcha_text.isdigit():
             login.recognize_captcha()
             flush_print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
+            sleep(0.3)
         print('')
     except Exception:
         raise

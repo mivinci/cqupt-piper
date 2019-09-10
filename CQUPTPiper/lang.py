@@ -1,4 +1,5 @@
 from enum import Enum
+from os import path
 from CQUPTPiper import PIPER_PATH
 from CQUPTPiper.auth import readconfig, KEY_LANG, VALUE_LANG_ENGLISH
 
@@ -56,5 +57,9 @@ class CH:
     ERROR_NO_OPTION = '需要输入选项'
    
 
-Lang: str = readconfig(PIPER_PATH).get(KEY_LANG)
+if path.isfile(PIPER_PATH):
+    Lang: str = readconfig(PIPER_PATH).get(KEY_LANG)
+else:
+    Lang: str = VALUE_LANG_ENGLISH
+
 Instruction: CH or EN = EN if Lang == VALUE_LANG_ENGLISH else CH
