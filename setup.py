@@ -7,6 +7,11 @@ setup(
     description='Piper is a command line tool to get info from jwzx.cqupt.edu.cn.',
     author='Mivinci XJJ',
     packages=['CQUPTPiper'],
+    install_requires=[
+        'pytesseract',
+        'Pillow',
+        'requests'
+    ],
     entry_points={
         'console_scripts': [
             'piper = CQUPTPiper.piper:cli'

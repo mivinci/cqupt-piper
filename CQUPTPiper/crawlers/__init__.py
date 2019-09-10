@@ -17,3 +17,32 @@ but do not write the urls directly in your code, cuz all urls can be called from
 
 Plus, DO NOT edit any code outside this package.
 """
+from CQUPTPiper.subcommand import NameSpace
+from .credit import CreditCrawler
+from .fee import FeeCrawler
+from .gpa import GPACrawler
+from .tasks import TasksCrawler
+from .photo import PhotoCrawler
+
+
+class Crawler:
+    mapping: dict = {
+        'credit': CreditCrawler,
+        '-c': CreditCrawler,
+
+        'fee': FeeCrawler,
+        '-f': FeeCrawler,
+
+        'gpa': GPACrawler,
+        '-g': GPACrawler,
+
+        'tasks': TasksCrawler,
+        '-t': TasksCrawler,
+
+        'photo': PhotoCrawler,
+        '-p': PhotoCrawler
+    }
+
+    @classmethod
+    def do(cls, piper, namespace: NameSpace):
+        cls.mapping.get(namespace.get('get').get('option'))(piper, namespace).fmt_print()

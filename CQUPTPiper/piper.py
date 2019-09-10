@@ -7,6 +7,7 @@ from CQUPTPiper.log import Log
 from CQUPTPiper.config import Config
 from CQUPTPiper.login import Login, login_execute
 from CQUPTPiper.subcommand import isquit
+from CQUPTPiper.crawlers import Crawler
 
 
 class Piper:
@@ -37,7 +38,7 @@ class Piper:
                     # Connect to the Crawler.
                     # Connect to the Crawler.
                     # Connect to the Crawler.
-                    print(namespace)
+                    Crawler.do(self, namespace)
         print('\nBye!\n')
 
 
@@ -49,5 +50,5 @@ def cli():
 
     if noargs() or args.manual:
         piper = Piper(args)
-        piper.login()
+        # piper.login()
         piper.run()

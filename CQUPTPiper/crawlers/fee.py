@@ -1,4 +1,3 @@
-from CQUPTPiper.piper import Piper
 from CQUPTPiper.subcommand import NameSpace
 
 """
@@ -22,7 +21,7 @@ which prints result like
 You DON'T have get the result formatted 100 percent like this.
 """
 class FeeCrawler:
-    def __init__(self, piper: Piper, namespace: NameSpace):
+    def __init__(self, piper, namespace: NameSpace):
         """
         If user input 'get fee 2018 -s -g'
         namespace will be assigned to a dict:

@@ -1,4 +1,3 @@
-from CQUPTPiper.piper import Piper
 from CQUPTPiper.subcommand import NameSpace
 
 """
@@ -31,7 +30,7 @@ If year not specified:
 You DON'T have get the result formatted 100 percent like this.
 """
 class CreditCrawler:
-    def __init__(self, namespace: NameSpace, piper: Piper):
+    def __init__(self, piper, namespace: NameSpace):
         """
         If user input 'get credit 2018 -s -g'
         namespace will be assigned to a dict:
@@ -52,4 +51,5 @@ class CreditCrawler:
         for your convenience.
         """
 
-    def fmt_print(self): pass
+    def fmt_print(self):
+        print('Credit Crawler')

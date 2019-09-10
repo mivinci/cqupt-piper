@@ -1,4 +1,3 @@
-from CQUPTPiper.piper import Piper
 from CQUPTPiper.subcommand import NameSpace
 
 """
@@ -12,7 +11,7 @@ Parameter: 'piper' contains attribute that may be needed:
     urls:    has the necessary jwzx urls for crawling data
 """
 class PhotoCrawler:
-    def __init__(self, piper: Piper, namespace: NameSpace):
+    def __init__(self, piper, namespace: NameSpace):
         """
         If user input 'get photo 2018213056 -s -g'
         namespace will be assigned to a dict:
