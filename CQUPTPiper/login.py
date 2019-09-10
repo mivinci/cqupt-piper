@@ -14,6 +14,7 @@ class Login:
         self.captcha_text = None
 
     def set_phpsessid(self):
+        print(self.config.instruction.LOGIN)
         self.session.get(self.urls.URL_LOGIN)
 
     def recognize_captcha(self):
@@ -33,7 +34,7 @@ class Login:
 
     def strike(self) -> bool:
         resp = self.session.post(self.urls.URL_CHECK_LOGIN,
-                                headers={'User-Agent': 'Mozilla/5.0'},
+                                headers={'User-Agent': 'Mozilla/5.0 Chrome/76.0.3809.132 Safari/537.36'},
                                 data={
                                     'name': self.config.user.get('stuid'),
                                     'password': self.config.user.get('password'),

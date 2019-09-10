@@ -15,6 +15,7 @@ class EN:
     USERNAME = 'Username: '
     PASSWORD = 'Password: '
 
+    LOGIN = 'Sign in ...'
     ENTER_CAPTCHA = 'Enter captcha: '
     LOGIN_FAILED = 'Login Failed'
     LOGIN_SUCCESSFULLY = 'Login Successfully!'
@@ -38,6 +39,7 @@ class CH:
     USERNAME = '学号: '
     PASSWORD = '密码: '
 
+    LOGIN = '正在登录 ...'
     ENTER_CAPTCHA = '验证码: '
     LOGIN_FAILED = '登录失败'
     LOGIN_SUCCESSFULLY = '登录成功!'

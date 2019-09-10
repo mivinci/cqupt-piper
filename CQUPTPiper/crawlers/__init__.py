@@ -25,6 +25,11 @@ from .tasks import TasksCrawler
 from .photo import PhotoCrawler
 
 
+CRAWLER_CMD = 'get'
+CRAWLER_KEY_OPT = 'option'
+CRAWLER_KEY_ARG = 'argument'
+
+
 class Crawler:
     mapping: dict = {
         'credit': CreditCrawler,
@@ -45,4 +50,4 @@ class Crawler:
 
     @classmethod
     def do(cls, piper, namespace: NameSpace):
-        cls.mapping.get(namespace.get('get').get('option'))(piper, namespace).fmt_print()
+        cls.mapping.get(namespace.get(CRAWLER_CMD).get(CRAWLER_KEY_OPT))(piper, namespace.get(CRAWLER_CMD)).fmt_print()

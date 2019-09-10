@@ -1,4 +1,8 @@
+from os import remove
+from PIL import Image
 from CQUPTPiper.subcommand import NameSpace
+from CQUPTPiper.auth import KEY_STUID
+from CQUPTPiper import PIPER_DIR
 
 """
 Target Url: 'http://jwzx.cqu.pt/showstupic.php?xh={stu_id}'
@@ -29,9 +33,21 @@ class PhotoCrawler:
         You can start coding like
             self.config = self.piper.config
             self.session = self.piper.session
+            self.cookies = self.session.cookies
         for your convenience.
         """
+        self.user = piper.config.user
+        self.stuid = namespace.get('argument') or self.user.get(KEY_STUID)
+        self.url = f'{piper.urls.URL_STUDENT_PHOTO}{self.stuid}'
 
-    def show(self): pass
+        # print(self.piper.session.cookies)
+
+    def fmt_print(self):
+        path: str = f'{PIPER_DIR}/a_{self.stuid}.jpg'
+        with open(path, 'wb') as f:
+            f.write(self.piper.session.get(self.url).content)
+        im = Image.open(path)
+        im.show()
+        remove(path)
 
     def save(self, path: str): pass
