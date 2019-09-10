@@ -27,7 +27,12 @@ class Piper:
         subcommand = subcommand_parser()
         print(self.config.instruction.SUBCOMMAND_INSTRUCTION)
         while not isquit(self.command):
-            self.command = input('> ')
+            try:
+                self.command = input('> ')
+            except KeyboardInterrupt:
+                print('\n\nBye!\n')
+                exit(0)
+
             if self.command:
                 # I don't wanna write Golang-like code in Python
                 # But it works goddamn we!!
@@ -39,6 +44,7 @@ class Piper:
                     # Connect to the Crawler.
                     # Connect to the Crawler.
                     Crawler.do(self, namespace)
+
         print('\nBye!\n')
 
 

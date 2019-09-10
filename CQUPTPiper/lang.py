@@ -18,7 +18,7 @@ class EN:
     LOGIN = 'Sign in ...'
     ENTER_CAPTCHA = 'Enter captcha: '
     LOGIN_FAILED = 'Login Failed'
-    LOGIN_SUCCESSFULLY = 'Login Successfully!'
+    LOGIN_SUCCESSFULLY = '\nLogin Successfully!'
     RETRYING = 'Retrying ...'
 
     RECOGNIZING_CAPTCHA = 'Recognizing captcha'
@@ -42,7 +42,7 @@ class CH:
     LOGIN = '正在登录 ...'
     ENTER_CAPTCHA = '验证码: '
     LOGIN_FAILED = '登录失败'
-    LOGIN_SUCCESSFULLY = '登录成功!'
+    LOGIN_SUCCESSFULLY = '\n登录成功!'
     RETRYING = '重试 ...'
 
     RECOGNIZING_CAPTCHA = '正在识别验证码'
