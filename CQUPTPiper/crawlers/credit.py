@@ -1,5 +1,3 @@
-from CQUPTPiper.subcommand import NameSpace
-
 """
 Target Url: 'http://jwzx.cqu.pt/student/xkxfTj.php' with id='AxfTjTable'
             also available at piper.urls.URL_CREDIT
@@ -29,6 +27,9 @@ If year not specified:
 
 You DON'T have get the result formatted 100 percent like this.
 """
+from CQUPTPiper.subcommand import NameSpace
+
+
 class CreditCrawler:
     def __init__(self, piper, namespace: NameSpace):
         """

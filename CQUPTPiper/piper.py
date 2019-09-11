@@ -1,4 +1,4 @@
-from requests import Session
+from requests import Session, ConnectionError
 from argparse import ArgumentParser
 
 from CQUPTPiper.cli import arg_parser, noargs, subcommand_parser
@@ -57,5 +57,9 @@ def cli():
 
     if noargs() or args.manual:
         piper = Piper(args)
-        piper.login()
-        piper.run()
+        try:
+            piper.login()
+            piper.run()
+        except ConnectionError:
+            Log.fatal(piper.config.instruction.ERROR_NO_NETWORK_CONNECTION)
+

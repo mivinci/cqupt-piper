@@ -19,9 +19,9 @@ which prints result like
 You DON'T have get the result formatted 100 percent like this.
 """
 from CQUPTPiper.subcommand import NameSpace
-from bs4 import BeautifulSoup
+from CQUPTPiper.decorators import Crawler
 from prettytable import PrettyTable
-
+from bs4 import BeautifulSoup
 
 class FeeCrawler:
     def __init__(self, piper, namespace: NameSpace):
@@ -57,6 +57,7 @@ class FeeCrawler:
             for td in tds:
                 self.fee[school_year].append(td.text)
 
+    @Crawler.spy
     def fmt_print(self):
         self.crawl()
         table = PrettyTable()

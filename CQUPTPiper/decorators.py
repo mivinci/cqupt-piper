@@ -16,3 +16,15 @@ def authorize(func):
         except KeyboardInterrupt:
             print('\nBye!')
     return func_wrapper
+
+
+class Crawler:
+
+    @staticmethod
+    def spy(func):
+        def func_wrapper(self):
+            func(self)
+            # print(self.namespace)
+            # print(self.piper.config.user)
+            # print(func.__name__)
+        return func_wrapper

@@ -51,18 +51,19 @@ class TasksCrawler:
         for tr in soup.find('tbody').findAll('tr'):
             tds = tr.findAll('td')[5:]
             self.tasks.append([
-                tds[0].text,
-                tds[4].text,
-                tds[5].text,
-                tds[1].text,
-                tds[2].text,
-                tds[3].text,
-                tds[6].text])
+                tds[0].text,  # 课程名称
+                tds[4].text,  # 教室号
+                tds[5].text,  # 座位号
+                tds[1].text,  # 周次
+                tds[2].text,  # 星期
+                tds[3].text,  # 具体时间
+                tds[6].text   # 资格
+            ])
 
     def fmt_print(self):
         self.crawl()
         table = PrettyTable()
-        table.field_names = ['课程', '教室', '座位', '周次', '星期', '具体时间', '资格']
+        table.field_names = ['课程名称', '教室', '座位', '周次', '星期', '具体时间', '资格']
         if self.tasks:
             for row in self.tasks:
                 table.add_row(row)
