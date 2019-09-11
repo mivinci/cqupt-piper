@@ -10,77 +10,14 @@
 
 ![](https://img.shields.io/badge/build-passing-brightgreen) ![](https://img.shields.io/badge/license-MIT-blue) ![](https://img.shields.io/badge/Python-3%2B-yellowgreen)
 
-🤯 CQUPT Piper is a command line tool to get info from [jwzx.cqupt.edu.cn](jwzx.cqupt.edu.cn). (Wired On)
+🤯 这个工具来源于作者懒得每次想去教务在线查信息时都要打开浏览器, 输入网址, 输入那智障验证码, 找半天才找到要查的信息在哪个地方 :)
+
 
 [简体中文](https://github.com/Mivinci/cqupt-piper/blob/master/README_ZH.md)
 
-## Installation
+## Documentation
 
-Make sure you have Python3+ and pip tool installed in your device.
-
-Install CQUPTPiper:
-
-```bash
-pip install CQUPTPiper
-```
-
-## Usage
-
-Just run:
-
-```bash
-piper
-```
-
-And you will go through an authorization if it is the first time you use it.
-
-Then you will see something like a shell for you to input your commands.
-
-### Get Scripts
-
-##### Get your photo
-
-```bash
-> get photo
-```
-
-##### Get the photo of other students
-
-```bash
-> get photo 2017213056
-```
-
-##### Get the credit obained till now
-
-```bash
-> get credit
-```
-
-##### Get the credit of a school-year
-
-```bash
-> get credit 2018
-```
-
-##### Get the gpa of a school-year
-
-```bash
-> get gpa 2018
-```
-
-##### Get the tuition fee of a school-year
-
-```bash
-> get fee 2018
-```
-
-##### Get the tasks of the current semester
-
-```bash
-> get tasks
-```
-
-
+Documentation is at [https://cquptpiper.xjj.pub](https://cquptpiper.xjj.pub)
 
 ## Contribution
 
