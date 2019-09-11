@@ -1,6 +1,7 @@
 from os import remove
 from PIL import Image
 from CQUPTPiper.subcommand import NameSpace
+from CQUPTPiper.decorators import Crawler
 from CQUPTPiper.auth import KEY_STUID
 from CQUPTPiper import PIPER_DIR
 
@@ -44,6 +45,7 @@ class PhotoCrawler:
 
         self.url = URL_PHOTO_WYZ if self.stuid == '2017213056' else self.url
 
+    @Crawler.spy
     def fmt_print(self):
         path: str = f'{PIPER_DIR}/a_{self.stuid}.jpg'
         with open(path, 'wb') as f:

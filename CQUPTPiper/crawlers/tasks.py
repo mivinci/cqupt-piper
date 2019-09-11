@@ -18,6 +18,7 @@ which prints result like
 You DON'T have get the result formatted 100 percent like this.
 """
 from CQUPTPiper.subcommand import NameSpace
+from CQUPTPiper.decorators import Crawler
 from prettytable import PrettyTable
 from bs4 import BeautifulSoup
 
@@ -60,6 +61,7 @@ class TasksCrawler:
                 tds[6].text   # 资格
             ])
 
+    @Crawler.spy
     def fmt_print(self):
         self.crawl()
         table = PrettyTable()
