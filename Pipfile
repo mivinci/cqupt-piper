@@ -10,6 +10,8 @@ pylint = "*"
 pillow = "*"
 pytesseract = "*"
 requests = "*"
+bs4 = "*"
+prettytable = "*"
 
 [requires]
 python_version = "3.7"

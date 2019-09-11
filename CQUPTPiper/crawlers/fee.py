@@ -1,5 +1,3 @@
-from CQUPTPiper.subcommand import NameSpace
-
 """
 Target Url: 'http://jwzx.cqu.pt/student/zc.php' with id='AxfTjTable'
             also available at piper.urls.URL_FINANCE
@@ -20,6 +18,11 @@ which prints result like
 
 You DON'T have get the result formatted 100 percent like this.
 """
+from CQUPTPiper.subcommand import NameSpace
+from bs4 import BeautifulSoup
+from prettytable import PrettyTable
+
+
 class FeeCrawler:
     def __init__(self, piper, namespace: NameSpace):
         """
@@ -33,8 +36,11 @@ class FeeCrawler:
             }
         }
         """
-        self.namespace = namespace
         self.piper = piper
+        self.namespace = namespace
+        self.year = namespace.get('argument') 
+        self.url = self.piper.urls.URL_FINANCE
+        self.fee = dict()
         """
         You can start coding like
             self.config = self.piper.config
@@ -42,4 +48,25 @@ class FeeCrawler:
         for your convenience.
         """
 
-    def fmt_print(self): pass
+    def crawl(self):
+        soup = BeautifulSoup(self.piper.session.get(self.url).text, 'html.parser')
+        for tr in soup.find('table', {'class', 'pTable'}).findAll('tr')[1:]:
+            tds = tr.findAll('td')
+            school_year = tds[0].text.split('-')[0]
+            self.fee[school_year] = list()
+            for td in tds:
+                self.fee[school_year].append(td.text)
+
+    def fmt_print(self):
+        self.crawl()
+        table = PrettyTable()
+        table.field_names = ['学年', '应缴', '已缴', '未缴']
+        if self.year:
+            row = self.fee.get(self.year)
+            if row:
+                table.add_row(row)
+        else:
+            for _, v in self.fee.items():
+                table.add_row(v)
+        print(table)
+        print('(具体明细，请查询财务处集中收费平台)')

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c81242f9150d5c86f68ba1a6a35d4b343b85bb98bc04cdd78a8f63c392b21443"
+            "sha256": "0d718d7ef4345e5ce81965d0ad5825c2db365872b7fd42312fde89d788cc917e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,21 @@
         ]
     },
     "default": {
+        "beautifulsoup4": {
+            "hashes": [
+                "sha256:05668158c7b85b791c5abde53e50265e16f98ad601c402ba44d70f96c4159612",
+                "sha256:25288c9e176f354bf277c0a10aa96c782a6a18a17122dba2e8cec4a97e03343b",
+                "sha256:f040590be10520f2ea4c2ae8c3dae441c7cfff5308ec9d58a0ec0c1b8f81d469"
+            ],
+            "version": "==4.8.0"
+        },
+        "bs4": {
+            "hashes": [
+                "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"
+            ],
+            "index": "pypi",
+            "version": "==0.0.1"
+        },
         "certifi": {
             "hashes": [
                 "sha256:046832c04d4e752f37383b628bc601a7ea7211496b4638f6514d0e5b9acc4939",
@@ -69,6 +84,15 @@
             "index": "pypi",
             "version": "==6.1.0"
         },
+        "prettytable": {
+            "hashes": [
+                "sha256:2d5460dc9db74a32bcc8f9f67de68b2c4f4d2f01fa3bd518764c69156d9cacd9",
+                "sha256:853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36",
+                "sha256:a53da3b43d7a5c229b5e3ca2892ef982c46b7923b51e98f0db49956531211c4f"
+            ],
+            "index": "pypi",
+            "version": "==0.7.2"
+        },
         "pytesseract": {
             "hashes": [
                 "sha256:ae1dce01413d1f8eb0614fd65d831e26e649dc1a31699b7275455c57aa563b59"
@@ -83,6 +107,13 @@
             ],
             "index": "pypi",
             "version": "==2.22.0"
+        },
+        "soupsieve": {
+            "hashes": [
+                "sha256:8662843366b8d8779dec4e2f921bebec9afd856a5ff2e82cd419acc5054a1a92",
+                "sha256:a5a6166b4767725fd52ae55fee8c8b6137d9a51e9f1edea461a062a759160118"
+            ],
+            "version": "==1.9.3"
         },
         "urllib3": {
             "hashes": [

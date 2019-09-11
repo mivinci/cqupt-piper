@@ -28,7 +28,7 @@ def subcommand_parser():
     group = subcmd.add_group("get")
     group.add_argument("photo", "-p", "获取照片", argname='学号', type=int)
     group.add_argument("credit", "-c", "获取学分", argname='年份', type=int)
-    group.add_argument("fee", "-c", "获取学费", argname='年份', type=int)
-    group.add_argument("gpa", "-c", "获取绩点和排名", argname='年份', type=int)
-    group.add_argument("tasks", "-c", "获取考试安排", argname='年份', type=int)
+    group.add_argument("fee", "-f", "获取学费", argname='年份', type=int)
+    group.add_argument("gpa", "-g", "获取绩点和排名", argname='年份', type=int)
+    group.add_argument("tasks", "-t", "获取考试安排", argname='年份', type=int)
     return subcmd

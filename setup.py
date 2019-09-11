@@ -10,7 +10,9 @@ setup(
     install_requires=[
         'pytesseract',
         'Pillow',
-        'requests'
+        'requests',
+        'bs4',
+        'PrettyTable'
     ],
     entry_points={
         'console_scripts': [

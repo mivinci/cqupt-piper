@@ -14,10 +14,11 @@ class Proxy:
     URL_CREDIT = 'http://jwzx.cqu.pt/student/xkxfTj.php'
     
     # 各类数据在 HTML 的标签id:
-    # 学费: id='ui-id-3'
-    URL_FINANCE = 'http://jwzx.cqu.pt/student/zc.php'
+    # 学费: id='pTable'
+    URL_FINANCE = 'http://jwzx.cqu.pt/student/jfInfo.php'
 
     # 考试安排
+    #id='stuKsTab-ks'
     URL_TASKS = 'http://jwzx.cqu.pt/student/ksap.php'
 
     # 学生照片

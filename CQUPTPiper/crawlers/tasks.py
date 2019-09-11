@@ -1,5 +1,3 @@
-from CQUPTPiper.subcommand import NameSpace
-
 """
 Target Url: 'http://jwzx.cqu.pt/student/ksap.php'
             also available at piper.urls.URL_TASKS
@@ -19,6 +17,11 @@ which prints result like
 
 You DON'T have get the result formatted 100 percent like this.
 """
+from CQUPTPiper.subcommand import NameSpace
+from prettytable import PrettyTable
+from bs4 import BeautifulSoup
+
+
 class TasksCrawler:
     def __init__(self, piper, namespace: NameSpace):
         """
@@ -34,6 +37,8 @@ class TasksCrawler:
         """
         self.namespace = namespace
         self.piper = piper
+        self.url = self.piper.urls.URL_TASKS
+        self.tasks = list()
         """
         You can start coding like
             self.config = self.piper.config
@@ -41,4 +46,25 @@ class TasksCrawler:
         for your convenience.
         """
 
-    def fmt_print(self): pass
+    def crawl(self):
+        soup = BeautifulSoup(self.piper.session.get(self.url).text, 'html.parser')
+        for tr in soup.find('tbody').findAll('tr'):
+            tds = tr.findAll('td')[5:]
+            self.tasks.append([
+                tds[0].text,
+                tds[4].text,
+                tds[5].text,
+                tds[1].text,
+                tds[2].text,
+                tds[3].text,
+                tds[6].text])
+
+    def fmt_print(self):
+        self.crawl()
+        table = PrettyTable()
+        table.field_names = ['课程', '教室', '座位', '周次', '星期', '具体时间', '资格']
+        if self.tasks:
+            for row in self.tasks:
+                table.add_row(row)
+        print(table)
+        print('多喝热水, 及时做好复习准备哦!')

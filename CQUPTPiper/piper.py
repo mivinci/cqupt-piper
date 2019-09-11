@@ -8,6 +8,7 @@ from CQUPTPiper.config import Config
 from CQUPTPiper.login import Login, login_execute
 from CQUPTPiper.subcommand import isquit
 from CQUPTPiper.crawlers import Crawler
+from CQUPTPiper import SHELL_PREFIX
 
 
 class Piper:
@@ -28,7 +29,7 @@ class Piper:
         print(self.config.instruction.SUBCOMMAND_INSTRUCTION)
         while not isquit(self.command):
             try:
-                self.command = input('> ')
+                self.command = input(SHELL_PREFIX)
             except KeyboardInterrupt:
                 print('\n\nBye!\n')
                 exit(0)
