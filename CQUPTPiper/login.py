@@ -1,7 +1,7 @@
 from time import sleep
 
 from CQUPTPiper.urls import Url
-from CQUPTPiper.fr import flush_print
+from CQUPTPiper.fr import flush_print, Loading
 
 
 class Login:
@@ -45,7 +45,7 @@ class Login:
             print(f"{self.config.instruction.LOGIN_FAILED}: {resp['info']}")
             print(self.config.instruction.RETRYING)
             return False
-        print(self.config.instruction.LOGIN_SUCCESSFULLY)
+        print('\033[92m', self.config.instruction.LOGIN_SUCCESSFULLY, '\x1b[0m')
         return True
 
 
@@ -59,11 +59,12 @@ def execute_recognize_captcha_manually(piper, login: Login):
 def execute_recognize_captcha(piper, login: Login):
     try:
         login.recognize_captcha()
-        flush_print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
-        while not login.captcha_text or len(login.captcha_text) != 5 or not login.captcha_text.isdigit():
+        Loading.print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
+        while not login.captcha_text or \
+                len(login.captcha_text) != 5 or not \
+                login.captcha_text.isdigit():
             login.recognize_captcha()
-            flush_print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
-            sleep(0.3)
+            Loading.print(f"{piper.config.instruction.RECOGNIZING_CAPTCHA}: {login.captcha_text}")
         print('')
     except Exception:
         raise

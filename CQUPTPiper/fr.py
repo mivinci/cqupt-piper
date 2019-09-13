@@ -1,6 +1,7 @@
 import base64
 from os import remove
 from sys import stdout
+from time import sleep
 
 
 def b64enc(s: any) -> str:
@@ -33,3 +34,18 @@ def b64_fread(filename: str) -> str:
 def flush_print(s: str):
     print(s)
     stdout.write("\033[F")  # Cursor up one line
+
+
+class Loading:
+    frames = ['[=   ]', '[ =  ]', '[  = ]', '[   =]']
+    curr_i = -1
+
+    @classmethod
+    def print(cls, msg: str):
+        if cls.curr_i < 3:
+            cls.curr_i += 1
+        else:
+            cls.curr_i = 0
+        print(cls.frames[cls.curr_i], msg)
+        stdout.write("\033[F")
+        sleep(0.2)
