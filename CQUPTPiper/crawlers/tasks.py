@@ -70,4 +70,5 @@ class TasksCrawler:
             for row in self.tasks:
                 table.add_row(row)
         print(table)
-        print('多喝热水, 及时做好复习准备哦!')
+        print('共', len(self.tasks), '项考试')
+        print('多喝热水, 及时做好复习准备哦~')

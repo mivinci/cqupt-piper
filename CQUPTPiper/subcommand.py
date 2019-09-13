@@ -142,5 +142,5 @@ class SubCommand:
         for kc, vc in self.commands.items():
             for ko, vo in vc.items():
                 if ko[0] != '-':
-                    print("    %s %s\t<%s>\t%s" %(kc, ko, vo[KEY_ARGNAME], vo['help']))
+                    print("    \033[1m%s %s\033[0m\t<%s>\t%s" %(kc, ko, vo[KEY_ARGNAME], vo['help']))
             print('\n示例: %s credit 2018' %kc)

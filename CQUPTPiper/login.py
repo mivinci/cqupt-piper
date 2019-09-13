@@ -45,7 +45,7 @@ class Login:
             print(f"{self.config.instruction.LOGIN_FAILED}: {resp['info']}")
             print(self.config.instruction.RETRYING)
             return False
-        print('\033[92m', self.config.instruction.LOGIN_SUCCESSFULLY, '\x1b[0m')
+        print('\033[92m', self.config.instruction.LOGIN_SUCCESSFULLY, '\033[0m')
         return True
 
 
