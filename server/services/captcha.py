@@ -6,5 +6,4 @@ class Captcha(Service):
 
     @classmethod
     def recognize(cls, data=None):
-        
         return data
