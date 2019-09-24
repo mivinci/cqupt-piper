@@ -60,6 +60,7 @@ class FeeCrawler:
     @Crawler.spy
     def fmt_print(self):
         self.crawl()
+        row = None
         table = PrettyTable()
         table.field_names = ['学年', '应缴', '已缴', '未缴']
         if self.year:
@@ -69,5 +70,8 @@ class FeeCrawler:
         else:
             for _, v in self.fee.items():
                 table.add_row(v)
-        print(table)
-        print('(具体明细，请查询财务处集中收费平台)')
+        if row:
+            print(table)
+            print('(具体明细，请查询财务处集中收费平台)')
+        else:
+            print('无查询结果')

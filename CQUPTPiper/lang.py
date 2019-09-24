@@ -53,7 +53,7 @@ class CH:
     BEFORE_AUTHORIZATION = '第一次使用需验证您的身份.'
     AUTHORIZATION_FAILED = '密码错误!'
 
-    SUBCOMMAND_INSTRUCTION = '输入 help 查看可执行指令'
+    SUBCOMMAND_INSTRUCTION = '输入 help 查看可执行命令'
     EXIT = '已退出'
 
     ERROR_UNRECOGNIZED_SUBCOMMAND = '错误命令'

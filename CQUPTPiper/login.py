@@ -1,7 +1,7 @@
 from time import sleep
 
 from CQUPTPiper.urls import Url
-from CQUPTPiper.fr import flush_print, Loading
+from CQUPTPiper.fr import flush_print, Loading, clear_cmd
 
 
 class Login:
@@ -42,6 +42,7 @@ class Login:
                                 }).text
         resp = eval(resp)
         if resp['info'] != 'ok！':
+            clear_cmd()
             print(f"{self.config.instruction.LOGIN_FAILED}: {resp['info']}")
             print(self.config.instruction.RETRYING)
             return False

@@ -31,9 +31,14 @@ def b64_fread(filename: str) -> str:
         raise
 
 
+def clear_cmd():
+    stdout.write("\033[F")  # Cursor up one line
+    stdout.flush()
+
+
 def flush_print(s: str):
     print(s)
-    stdout.write("\033[F")  # Cursor up one line
+    clear_cmd()
 
 
 class Loading:

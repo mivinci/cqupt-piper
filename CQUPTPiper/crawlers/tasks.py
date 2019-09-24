@@ -69,6 +69,9 @@ class TasksCrawler:
         if self.tasks:
             for row in self.tasks:
                 table.add_row(row)
-        print(table)
-        print('共', len(self.tasks), '项考试')
-        print('多喝热水, 及时做好复习准备哦~')
+        if self.tasks:
+            print(table)
+            print('共', len(self.tasks), '项考试')
+            print('多喝热水, 及时做好复习准备哦~')
+        else:
+            print('无查询结果')
