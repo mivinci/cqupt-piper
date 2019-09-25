@@ -39,7 +39,7 @@ def crack_check_login():
 
 resp = eval(crack_check_login().text)['info']
 
-if resp != 'ok!':
+if resp != 'ok！':
     print(resp)
     exit(1)
 

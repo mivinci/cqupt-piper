@@ -2,28 +2,35 @@ import requests
 from bs4 import BeautifulSoup
 from prettytable import PrettyTable
 
-html = requests.get(
-    'http://jwzx.cqu.pt/student/jfInfo.php',
-    cookies={'PHPSESSID': 'd6l9osc39jphtnqmbeqvfsqdgb'}).text
+session = requests.Session()
 
-soup = BeautifulSoup(html, 'html.parser')
+session.get('http://jwzx.cqu.pt/login.php')
 
-fee = dict()
+print(session.cookies.get_dict())
 
-for tr in soup.find('table', {'class': 'pTable'}).findAll('tr')[1:]:
-    tds = tr.findAll('td')
-    year = tds[0].text.split('-')[0]
-    fee[year] = list()
-    for td in tds:
-        fee[year].append(td.text)
+html = session.get('http://jwzx.cqu.pt/student/jfInfo.php', headers={'User-Agent': 'Mozilla/5.0 Chrome/76.0.3809.132 Safari/537.36'}).text
 
-# print(fee)
 
-table = PrettyTable()
-table.field_names = ['学年', '应缴', '已缴', '未缴']
+print(html)
 
-for k, v in fee.items():
-    table.add_row(v)
+# soup = BeautifulSoup(html, 'html.parser')
 
-print(table)
+# fee = dict()
+
+# for tr in soup.find('table', {'class': 'pTable'}).findAll('tr')[1:]:
+#     tds = tr.findAll('td')
+#     year = tds[0].text.split('-')[0]
+#     fee[year] = list()
+#     for td in tds:
+#         fee[year].append(td.text)
+
+# # print(fee)
+
+# table = PrettyTable()
+# table.field_names = ['学年', '应缴', '已缴', '未缴']
+
+# for k, v in fee.items():
+#     table.add_row(v)
+
+# print(table)
 
