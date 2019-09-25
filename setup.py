@@ -1,5 +1,5 @@
 from setuptools import setup
-from CQUPTPiper import __version__
+from cquptpiper import __version__
 
 setup(
     name='cquptpiper',
@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'piper = cquptpiper.piper:cli'
+            'cqupt = cquptpiper.piper:cli'
         ]
     }
 )
