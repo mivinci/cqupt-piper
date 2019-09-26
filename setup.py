@@ -1,9 +1,9 @@
 from setuptools import setup
-from cquptpiper import __version__
+from cquptpiper import __generation__
 
 setup(
     name='cquptpiper',
-    version=__version__,
+    version=__generation__,
     description='Piper is a command line tool to get info from jwzx.cqupt.edu.cn.',
     author='Mivinci XJJ',
     packages=['cquptpiper'],

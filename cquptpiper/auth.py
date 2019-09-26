@@ -8,6 +8,8 @@ from shutil import rmtree
 PATH_PIPER_COOKIE = f'{PIPER_HOME}/cookie'
 PATH_PIPER_USER = f'{PIPER_HOME}/user'
 
+MAX_COOKIE_LIVE = 60 * 15
+
 class Auth:
     @classmethod
     def init(cls):
@@ -25,7 +27,7 @@ class Auth:
     @classmethod
     def read_cookie(cls) -> dict or None:
         cookie: dict = eval(b64_fread(PATH_PIPER_COOKIE))        
-        if cookie and int(time()) - cookie.get('ts') < 60 * 15:
+        if cookie and int(time()) - cookie.get('ts') < MAX_COOKIE_LIVE:
             return cookie.get('cookie')
         return None
 

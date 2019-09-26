@@ -6,18 +6,16 @@ from cquptpiper.crawler.photo import Photo
 
 
 class Crawler:
-    def __init__(self, piper):
-        self.piper = piper
-        self.request = piper.session
+    def __init__(self): pass
 
-    def handle(self, argument):
+    def handle(self, piper, argument):
         if argument.credit:
-            Credit.handle(self.request, argument.credit)
+            Credit.handle(piper.session, argument.credit)
         if argument.gpa:
-            GPA.handle(self.request, argument.gpa)
+            GPA.handle(piper.session, argument.gpa)
         if argument.task:
-            Task.handle(self.request, argument.task)
+            Task.handle(piper.session, argument.task)
         if argument.fee:
-            Fee.handle(self.request, argument.fee)
+            Fee.handle(piper.session, argument.fee)
         if argument.photo:
-            Photo.handle(self.request, argument.photo)
+            Photo.handle(piper.session, argument.photo)
