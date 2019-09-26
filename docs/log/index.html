@@ -3,9 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CQUPTPiper</title>
-        
-        <meta name="robots" content="noindex" />
+        <title>日志 - CQUPTPiper</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -13,21 +11,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -37,7 +35,7 @@
     <body class="light">
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = "light";
         </script>
 
@@ -80,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="get_started/auth.html"><strong aria-hidden="true">1.1.</strong> 更改绑定</a></li><li><a href="get_started/get_fee.html"><strong aria-hidden="true">1.2.</strong> 学费查询</a></li><li><a href="get_started/get_credit.html"><strong aria-hidden="true">1.3.</strong> 学分查询</a></li><li><a href="get_started/get_gpa.html"><strong aria-hidden="true">1.4.</strong> 绩点排名查询</a></li><li><a href="get_started/get_task.html"><strong aria-hidden="true">1.5.</strong> 考试安排查询</a></li><li><a href="get_started/get_photo.html"><strong aria-hidden="true">1.6.</strong> 学生照片查询</a></li></ol></li><li><a href="open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="log/index.html"><strong aria-hidden="true">4.</strong> 日志</a></li></ol>
+                <ol class="chapter"><li><a href="../get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="../get_started/auth.html"><strong aria-hidden="true">1.1.</strong> 更改绑定</a></li><li><a href="../get_started/get_fee.html"><strong aria-hidden="true">1.2.</strong> 学费查询</a></li><li><a href="../get_started/get_credit.html"><strong aria-hidden="true">1.3.</strong> 学分查询</a></li><li><a href="../get_started/get_gpa.html"><strong aria-hidden="true">1.4.</strong> 绩点排名查询</a></li><li><a href="../get_started/get_task.html"><strong aria-hidden="true">1.5.</strong> 考试安排查询</a></li><li><a href="../get_started/get_photo.html"><strong aria-hidden="true">1.6.</strong> 学生照片查询</a></li></ol></li><li><a href="../open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="../open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="../open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="../contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="../log/index.html" class="active"><strong aria-hidden="true">4.</strong> 日志</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -115,7 +113,7 @@
                         <h1 class="menu-title">CQUPTPiper</h1>
 
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                             
@@ -151,129 +149,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#cqupt-piper" id="cqupt-piper">CQUPT Piper</a></h1>
-<p><strong>CQUPT Piper</strong> 是一个用 Python 编写, 为 CQUPTer 提供自动登录<strong>教务在线</strong>查询信息服务的命令行小工具.</p>
-<p>当前支持的查询信息有:</p>
-<ul>
-<li><input disabled="" type="checkbox" checked=""/>
-学分</li>
-<li><input disabled="" type="checkbox" checked=""/>
-学费</li>
-<li><input disabled="" type="checkbox" checked=""/>
-绩点排名</li>
-<li><input disabled="" type="checkbox" checked=""/>
-考试安排</li>
-<li><input disabled="" type="checkbox" checked=""/>
-学生照片</li>
-</ul>
-<p>该工具始于<a href="https://github.com/mivinci">作者</a>懒得每次都要打开浏览器输入验证码登录教务在线查询信息</p>
-<p>该工具会在第一次使用时, 要求您输入学号和教务在线的登录密码, 仅仅是为了通过教务在线的身份验证和防止非本校的人使用. 除了您自己的电脑上, 系统不会在任何地方保存您的密码.</p>
-<h2><a class="header" href="#安装" id="安装">安装</a></h2>
-<p>安装前, 确保您的设备已经安装了 Python3+ 和 pip</p>
-<pre><code class="language-bash">pip install cquptpiper
-</code></pre>
-<h2><a class="header" href="#使用" id="使用">使用</a></h2>
-<p>Window 的同学, 打开 CMD 或者 PowerShell  (<a href="https://jingyan.baidu.com/article/3ea51489ee29b652e71bba47.html">不知道怎么打开?</a>)</p>
-<p>Mac 和 Linux 的同学随你怎么搞</p>
-<h4><a class="header" href="#查询学费" id="查询学费">查询学费</a></h4>
-<pre><code class="language-bash">cqupt --fee 2019
-</code></pre>
-<p>该命令会查询并显示 2019-2020 学年您的学费缴纳记录.</p>
-<p>若不输入年份, 则会查询和显示大一到当前学年的学费缴纳记录</p>
-<h4><a class="header" href="#查询学生照片" id="查询学生照片">查询学生照片</a></h4>
-<pre><code class="language-bash">cqupt --photo 2017213056
-</code></pre>
-<p>该命令会查询和显示学号为 2017213056 的同学的照片, 慎用哦 :)</p>
-<p>若不输入学号, 则会查询和显示自己的照片.</p>
-<br/>
-<p>执行下面命令, 可查看更多使用方法</p>
-<pre><code class="language-bash">cqupt -h
-</code></pre>
-<h1><a class="header" href="#更改绑定" id="更改绑定">更改绑定</a></h1>
-<p><strong>更改绑定的学号</strong>或者<strong>更改当前绑定学号的密码</strong>可执行下面命令</p>
-<pre><code class="language-bash">cqupt --auth
-</code></pre>
-<p>按照提示输入即可</p>
-<p>⚠️⚠️<strong>注意</strong> 这样更改的密码只是更改了 CQUPT Piper 里记录的密码, 并不会影响您教务在线的密码.</p>
-<h1><a class="header" href="#学费查询" id="学费查询">学费查询</a></h1>
-<h4><a class="header" href="#命令" id="命令">命令</a></h4>
-<pre><code class="language-bash">cqupt --fee &lt;年份&gt;
-</code></pre>
-<h4><a class="header" href="#示例" id="示例">示例</a></h4>
-<p>查询 2018-2019 学年的学费缴纳情况</p>
-<pre><code class="language-bash">cqupt --fee 2018
-</code></pre>
-<p>查询大一到当前学年的学费缴纳情况</p>
-<pre><code class="language-bash">cqupt --fee
-</code></pre>
-<h1><a class="header" href="#学分查询" id="学分查询">学分查询</a></h1>
-<h4><a class="header" href="#命令-1" id="命令-1">命令</a></h4>
-<pre><code class="language-bash">cqupt --credit &lt;年份&gt;
-</code></pre>
-<h4><a class="header" href="#示例-1" id="示例-1">示例</a></h4>
-<p>查询 2018-2019 学年的学分数据</p>
-<pre><code class="language-bash">cqupt --credit 2018
-</code></pre>
-<p>查询大一到当前学年的学分数据</p>
-<pre><code class="language-bash">cqupt --credit
-</code></pre>
-<h1><a class="header" href="#绩点排名查询" id="绩点排名查询">绩点排名查询</a></h1>
-<h4><a class="header" href="#命令-2" id="命令-2">命令</a></h4>
-<pre><code class="language-bash">cqupt --gpa &lt;年份&gt;
-</code></pre>
-<h4><a class="header" href="#示例-2" id="示例-2">示例</a></h4>
-<p>查询 2018-2019 学年的绩点和年级排名情况</p>
-<pre><code class="language-bash">cqupt --gpa 2018
-</code></pre>
-<p>查询大一到当前学年的绩点和年级排名情况</p>
-<pre><code class="language-bash">cqupt --gpa
-</code></pre>
-<h1><a class="header" href="#考试安排查询" id="考试安排查询">考试安排查询</a></h1>
-<h4><a class="header" href="#命令-3" id="命令-3">命令</a></h4>
-<pre><code class="language-bash">cqupt --task
-</code></pre>
-<h4><a class="header" href="#示例-3" id="示例-3">示例</a></h4>
-<p>查询当前学期的考试安排</p>
-<pre><code class="language-bash">cqupt --task
-</code></pre>
-<p>由于考试安排数据教务在线更新缓慢, 查询结果可是仍然是上学期的数据</p>
-<h1><a class="header" href="#学生照片查询" id="学生照片查询">学生照片查询</a></h1>
-<h4><a class="header" href="#命令-4" id="命令-4">命令</a></h4>
-<pre><code class="language-bash">cqupt --photo &lt;学号&gt;
-</code></pre>
-<h4><a class="header" href="#示例-4" id="示例-4">示例</a></h4>
-<p>查询学号为 2017213056 的同学教务在线上存的照片</p>
-<pre><code class="language-bash">cqupt --photo 2017213056
-</code></pre>
-<p>查询自己教务在线上存的照片</p>
-<pre><code class="language-bash">cqupt --photo
-</code></pre>
-<h1><a class="header" href="#开放接口" id="开放接口">开放接口</a></h1>
-<p>你可以使用 CQUPT Piper 的开放接口来编写自己的教务在线查询小工具.</p>
-<h1><a class="header" href="#登录" id="登录">登录</a></h1>
-<p>暂未开放</p>
-<h1><a class="header" href="#教务在线爬虫" id="教务在线爬虫">教务在线爬虫</a></h1>
-<p>暂未开放</p>
-<h1><a class="header" href="#贡献" id="贡献">贡献</a></h1>
-<h4><a class="header" href="#让更多的人知道-cqupt-piper" id="让更多的人知道-cqupt-piper">让更多的人知道 CQUPT Piper</a></h4>
-<p>你可以让更多的人知道和了解<a href="https://cquptpiper.xjj.pub/get_started/index.html">如何使用 CQUPT Piper</a></p>
-<br/>
-<h4><a class="header" href="#为-cqupt-piper-提供反馈" id="为-cqupt-piper-提供反馈">为 CQUPT Piper 提供反馈</a></h4>
-<ul>
-<li>通过在 Github 提交 <a href="https://github.com/mivinci/cqupt-piper/issues">Issue</a> 来提供您对 CQUPT Piper 的意见和建议</li>
-<li>通过联系作者 (QQ: 1366723936) 来表达您对 CQUPT Piper 的不满</li>
-</ul>
-<br/>
-<h4><a class="header" href="#为-cqupt-piper-贡献代码" id="为-cqupt-piper-贡献代码">为 CQUPT Piper 贡献代码</a></h4>
-<ol>
-<li>
-<p>fork 仓库 <a href="https://github.com/Mivinci/cqupt-piper">https://github.com/mivinci/cqupt-piper</a></p>
-</li>
-<li>
-<p>Pull request</p>
-</li>
-</ol>
-<h1><a class="header" href="#日志" id="日志">日志</a></h1>
+                        <h1><a class="header" href="#日志" id="日志">日志</a></h1>
 <h4><a class="header" href="#2019-9-26" id="2019-9-26">2019-9-26</a></h4>
 <p>完成除<a href="https://github.com/Mivinci/cqupt-piper/tree/master/cquptpiper/crawler">爬虫</a>部分的编码</p>
 <p>完成<a href="https://github.com/mivinci/cqupt-piper/tree/master/server">服务端</a>登录请求部分的编码</p>
@@ -306,6 +182,10 @@
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="../contribution/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
                         
 
@@ -315,6 +195,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../contribution/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
 
                 
@@ -329,26 +213,18 @@
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
 
-        
-        
-        <script type="text/javascript">
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
-        
         
 
     </body>

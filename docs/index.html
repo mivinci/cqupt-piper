@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><a href="open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li></ol>
+                <ol class="chapter"><li><a href="get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="get_started/auth.html"><strong aria-hidden="true">1.1.</strong> 更改绑定</a></li><li><a href="get_started/get_fee.html"><strong aria-hidden="true">1.2.</strong> 学费查询</a></li><li><a href="get_started/get_credit.html"><strong aria-hidden="true">1.3.</strong> 学分查询</a></li><li><a href="get_started/get_gpa.html"><strong aria-hidden="true">1.4.</strong> 绩点排名查询</a></li><li><a href="get_started/get_task.html"><strong aria-hidden="true">1.5.</strong> 考试安排查询</a></li><li><a href="get_started/get_photo.html"><strong aria-hidden="true">1.6.</strong> 学生照片查询</a></li></ol></li><li><a href="open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="log/index.html"><strong aria-hidden="true">4.</strong> 日志</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -150,55 +150,43 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#cqupt-piper" id="cqupt-piper">CQUPT Piper</a></h1>
-<p>这个工具来源于作者懒得每次想去教务在线查信息时都要打开浏览器, 输入网址, 输入那智障验证码, 找半天才找到要查的信息在哪个地方 :)</p>
-<p>目前支持查询的信息有</p>
+<p><strong>CQUPT Piper</strong> 是一个用 Python 编写, 为 CQUPTer 提供自动登录<strong>教务在线</strong>查询信息服务的命令行小工具.</p>
+<p>当前支持的查询信息有:</p>
 <ul>
-<li><input disabled="" type="checkbox" checked=""/>
-学生照片</li>
 <li><input disabled="" type="checkbox" checked=""/>
 学分</li>
 <li><input disabled="" type="checkbox" checked=""/>
 学费</li>
 <li><input disabled="" type="checkbox" checked=""/>
-绩点和排名</li>
+绩点排名</li>
 <li><input disabled="" type="checkbox" checked=""/>
 考试安排</li>
+<li><input disabled="" type="checkbox" checked=""/>
+学生照片</li>
 </ul>
+<p>该工具始于<a href="https://github.com/mivinci">作者</a>懒得每次都要打开浏览器输入验证码登录教务在线查询信息</p>
+<p>该工具会在第一次使用时, 要求您输入学号和教务在线的登录密码, 仅仅是为了通过教务在线的身份验证和防止非本校的人使用. 除了您自己的电脑上, 系统不会在任何地方保存您的密码.</p>
 <h2><a class="header" href="#安装" id="安装">安装</a></h2>
 <p>安装前, 确保您的设备已经安装了 Python3+ 和 pip</p>
-<h3><a class="header" href="#使用-pip-安装" id="使用-pip-安装">使用 pip 安装</a></h3>
-<pre><code class="language-bash">pip install CQUPTPiper
+<pre><code class="language-bash">pip install cquptpiper
 </code></pre>
 <h2><a class="header" href="#使用" id="使用">使用</a></h2>
-<p>Windows 的童鞋按 <code>Win</code> + <code>R</code> 输入 <code>cmd</code> 或者 <code>Power Shell</code>, 运行下面命令</p>
-<pre><code class="language-bash">piper
+<p>Window 的同学, 打开 CMD 或者 PowerShell  (<a href="https://jingyan.baidu.com/article/3ea51489ee29b652e71bba47.html">不知道怎么打开?</a>)</p>
+<p>Mac 和 Linux 的同学随你怎么搞</p>
+<h4><a class="header" href="#查询学费" id="查询学费">查询学费</a></h4>
+<pre><code class="language-bash">cqupt --fee 2019
 </code></pre>
-<p>Linux 和 MacOS的童鞋, 随便您怎么搞.</p>
+<p>该命令会查询并显示 2019-2020 学年您的学费缴纳记录.</p>
+<p>若不输入年份, 则会查询和显示大一到当前学年的学费缴纳记录</p>
+<h4><a class="header" href="#查询学生照片" id="查询学生照片">查询学生照片</a></h4>
+<pre><code class="language-bash">cqupt --photo 2017213056
+</code></pre>
+<p>该命令会查询和显示学号为 2017213056 的同学的照片, 慎用哦 :)</p>
+<p>若不输入学号, 则会查询和显示自己的照片.</p>
 <br/>
-<p>运行 piper 后您会看到下面这样的<strong>语言选择</strong>提示</p>
-<pre><code class="language-bash">$ Keep on using English? [y/N]
-
+<p>执行下面命令, 可查看更多使用方法</p>
+<pre><code class="language-bash">cqupt -h
 </code></pre>
-<p>如需使用<strong>简体中文</strong>, 就输入 <code>N</code> 然后回车</p>
-<blockquote>
-<p>为了验证您是否是重庆邮电大学的在读学生, 第一次使用会要求输入教务在线的账号和密码.
-另外, 作者发4, 如果保存了用户的密码, 作者1辈子找不到媳妇儿 [滑稽]</p>
-</blockquote>
-<h3><a class="header" href="#基本使用" id="基本使用">基本使用</a></h3>
-<p>登录成功后, 你会进入 piper 的 Shell 环境, 像下面这个亚子 (如果你使用的中文)</p>
-<pre><code class="language-bash">登录成功!
-输入 help 查看可执行指令
-&gt; 
-</code></pre>
-<p>所以, 输入 help 回车, 就能看到如何使用了.</p>
-<h3><a class="header" href="#切换语言" id="切换语言">切换语言</a></h3>
-<p>如果您吃饱了撑的, 想从中文换成英文, 您可以在命令行运行下面这个命令</p>
-<pre><code class="language-bash">piper -l en
-</code></pre>
-<p>换回中文当然就是</p>
-<pre><code class="language-bash">piper -l ch
-</code></pre>
-<p>目前 piper 只支持中英文, 以后也<strong>不会</strong>支持其他语言</p>
 
                     </main>
 

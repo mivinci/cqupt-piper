@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>贡献 - CQUPTPiper</title>
+        <title>绩点排名查询 - CQUPTPiper</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="../get_started/auth.html"><strong aria-hidden="true">1.1.</strong> 更改绑定</a></li><li><a href="../get_started/get_fee.html"><strong aria-hidden="true">1.2.</strong> 学费查询</a></li><li><a href="../get_started/get_credit.html"><strong aria-hidden="true">1.3.</strong> 学分查询</a></li><li><a href="../get_started/get_gpa.html"><strong aria-hidden="true">1.4.</strong> 绩点排名查询</a></li><li><a href="../get_started/get_task.html"><strong aria-hidden="true">1.5.</strong> 考试安排查询</a></li><li><a href="../get_started/get_photo.html"><strong aria-hidden="true">1.6.</strong> 学生照片查询</a></li></ol></li><li><a href="../open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="../open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="../open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="../contribution/index.html" class="active"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="../log/index.html"><strong aria-hidden="true">4.</strong> 日志</a></li></ol>
+                <ol class="chapter"><li><a href="../get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="../get_started/auth.html"><strong aria-hidden="true">1.1.</strong> 更改绑定</a></li><li><a href="../get_started/get_fee.html"><strong aria-hidden="true">1.2.</strong> 学费查询</a></li><li><a href="../get_started/get_credit.html"><strong aria-hidden="true">1.3.</strong> 学分查询</a></li><li><a href="../get_started/get_gpa.html" class="active"><strong aria-hidden="true">1.4.</strong> 绩点排名查询</a></li><li><a href="../get_started/get_task.html"><strong aria-hidden="true">1.5.</strong> 考试安排查询</a></li><li><a href="../get_started/get_photo.html"><strong aria-hidden="true">1.6.</strong> 学生照片查询</a></li></ol></li><li><a href="../open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="../open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="../open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="../contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="../log/index.html"><strong aria-hidden="true">4.</strong> 日志</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,38 +149,30 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#贡献" id="贡献">贡献</a></h1>
-<h4><a class="header" href="#让更多的人知道-cqupt-piper" id="让更多的人知道-cqupt-piper">让更多的人知道 CQUPT Piper</a></h4>
-<p>你可以让更多的人知道和了解<a href="https://cquptpiper.xjj.pub/get_started/index.html">如何使用 CQUPT Piper</a></p>
-<br/>
-<h4><a class="header" href="#为-cqupt-piper-提供反馈" id="为-cqupt-piper-提供反馈">为 CQUPT Piper 提供反馈</a></h4>
-<ul>
-<li>通过在 Github 提交 <a href="https://github.com/mivinci/cqupt-piper/issues">Issue</a> 来提供您对 CQUPT Piper 的意见和建议</li>
-<li>通过联系作者 (QQ: 1366723936) 来表达您对 CQUPT Piper 的不满</li>
-</ul>
-<br/>
-<h4><a class="header" href="#为-cqupt-piper-贡献代码" id="为-cqupt-piper-贡献代码">为 CQUPT Piper 贡献代码</a></h4>
-<ol>
-<li>
-<p>fork 仓库 <a href="https://github.com/Mivinci/cqupt-piper">https://github.com/mivinci/cqupt-piper</a></p>
-</li>
-<li>
-<p>Pull request</p>
-</li>
-</ol>
+                        <h1><a class="header" href="#绩点排名查询" id="绩点排名查询">绩点排名查询</a></h1>
+<h4><a class="header" href="#命令" id="命令">命令</a></h4>
+<pre><code class="language-bash">cqupt --gpa &lt;年份&gt;
+</code></pre>
+<h4><a class="header" href="#示例" id="示例">示例</a></h4>
+<p>查询 2018-2019 学年的绩点和年级排名情况</p>
+<pre><code class="language-bash">cqupt --gpa 2018
+</code></pre>
+<p>查询大一到当前学年的绩点和年级排名情况</p>
+<pre><code class="language-bash">cqupt --gpa
+</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../open_api/crawler.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../get_started/get_credit.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../log/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../get_started/get_task.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -192,13 +184,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../open_api/crawler.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../get_started/get_credit.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../log/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../get_started/get_task.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
