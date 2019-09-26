@@ -25,8 +25,21 @@ class Auth:
         rmtree(PIPER_HOME)
 
     @classmethod
+    def clear_config(cls):
+        # cls.save_user(None)
+        cls.save_cookie(None)
+
+    @classmethod
+    def load_config(cls) -> dict:
+        return {
+            'user': cls.load_user(),
+            'cookie': cls.read_cookie()
+        }
+
+    @classmethod
     def read_cookie(cls) -> dict or None:
-        cookie: dict = eval(b64_fread(PATH_PIPER_COOKIE))        
+        cookie: dict = eval(b64_fread(PATH_PIPER_COOKIE))
+        # The math here can't be wrong!
         if cookie and int(time()) - cookie.get('ts') < MAX_COOKIE_LIVE:
             return cookie.get('cookie')
         return None

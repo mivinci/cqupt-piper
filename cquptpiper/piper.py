@@ -2,10 +2,10 @@ from cquptpiper import __version__, __description__
 from cquptpiper.log import Log
 from cquptpiper.auth import Auth
 from cquptpiper.urls import URL_LOGIN
-from cquptpiper.request import request_login
+from cquptpiper.request import Request
 from cquptpiper.crawler import Crawler
 from argparse import ArgumentParser
-from requests import Session
+from requests import Session, ConnectionError
 
 
 class Piper:
@@ -20,16 +20,23 @@ class Piper:
             self.user = Auth.enter_user()
 
         if self.cookie is None:
-            self.session.get(URL_LOGIN)
+            try:
+                self.session.get(URL_LOGIN)
+            except ConnectionError:
+                Log.fatal('网络走丢啦~')
+            
             self.cookie = self.session.cookies.get_dict()
             Auth.save_cookie(self.cookie)
-            request_login(self.user, self.cookie)
+            Request.login(self.user, self.cookie)
         else:
             self.session.cookies.update(self.cookie)
 
     def drop(self):
-        Auth.drop_config()
+        Auth.clear_config()
         Log.fatal('已删除配置')
+
+    def show_config(self):
+        Log.fatal(Auth.load_config())
 
 
 def construct_args():
@@ -38,6 +45,7 @@ def construct_args():
     
     group_internal = parser.add_argument_group('内置功能')
     group_internal.add_argument('--drop', action='store_true', help='删除配置')
+    group_internal.add_argument('--config', action='store_true', help='显示配置')
 
     group_crawler = parser.add_argument_group('从教务在线获取信息')
     group_crawler.add_argument('--fee', metavar='   学年', type=int, help='获取学年学费')
@@ -54,10 +62,13 @@ def cli():
     piper = Piper()
 
     args = construct_args()
-    print(args)
+    # print(args)
 
     if args.drop:
         piper.drop()
+
+    if args.config:
+        piper.show_config()
 
     piper.authorize()
 
