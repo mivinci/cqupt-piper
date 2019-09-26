@@ -11,7 +11,7 @@ class Log:
         print(cls.prefix, message)
 
     @classmethod
-    def fatal(cls, message: str, status: int = 0):
+    def fatal(cls, message: str = '', status: int = 0):
         cls.error(message)
         exit(status)
 
@@ -37,10 +37,10 @@ def loading(message: str):
     def loading_wrraper(target):
         def target_wrapper(*args, **kwargs):
             Thread(target=Loading.start, args=(message,)).start()
-            target(*args, **kwargs)
+            resp = target(*args, **kwargs)
             Loading.done = True
             stdout.flush()
-            print('\n\033[92m登录成功\033[0m')
+            return resp
         return target_wrapper
     return loading_wrraper
 

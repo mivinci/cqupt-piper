@@ -4,7 +4,7 @@ from cquptpiper.auth import Auth
 from cquptpiper.urls import URL_LOGIN
 from cquptpiper.request import Request
 from cquptpiper.crawler import Crawler
-from argparse import ArgumentParser
+from argparse import ArgumentParser, SUPPRESS
 from requests import Session, ConnectionError
 
 
@@ -17,7 +17,7 @@ class Piper:
 
     def authorize(self):
         if not self.user:
-            self.user = Auth.enter_user()
+            self.user = Auth.add_user()
 
         if self.cookie is None:
             try:
@@ -27,16 +27,29 @@ class Piper:
             
             self.cookie = self.session.cookies.get_dict()
             Auth.save_cookie(self.cookie)
-            Request.login(self.user, self.cookie)
+            Request.handle_login(Request.login(self.user, self.cookie))
         else:
             self.session.cookies.update(self.cookie)
 
+    def handle_args(self, args):
+        if args.drop:
+            self.drop()
+        if args.config:
+            self.show_config()
+        if args.auth:
+            Auth.update_user('确定要更改绑定吗?')
+
+
     def drop(self):
-        Auth.clear_config()
+        Auth.drop_config()
         Log.fatal('已删除配置')
 
     def show_config(self):
-        Log.fatal(Auth.load_config())
+        config: dict = Auth.load_config()
+        if config.get('user'):
+            print('学号:', config.get('user').get('userid'))
+            print('密码:', config.get('user').get('password'))
+        exit(0)
 
 
 def construct_args():
@@ -44,14 +57,15 @@ def construct_args():
     parser.add_argument('-v', '--version', action='version', version=__version__)
     
     group_internal = parser.add_argument_group('内置功能')
+    group_internal.add_argument('--auth', action='store_true', help='绑定学号')
     group_internal.add_argument('--drop', action='store_true', help='删除配置')
     group_internal.add_argument('--config', action='store_true', help='显示配置')
 
     group_crawler = parser.add_argument_group('从教务在线获取信息')
-    group_crawler.add_argument('--fee', metavar='   学年', type=int, help='获取学年学费')
-    group_crawler.add_argument('--gpa', metavar='   学年', type=int, help='获取学年绩点')
-    group_crawler.add_argument('--credit', metavar='学年', type=int, help='获取学年学分')
-    group_crawler.add_argument('--photo', metavar=' 学号', type=str, help='获取学生照片')
+    group_crawler.add_argument('--fee', metavar='学年', type=int, const=-1, nargs='?', help='获取学年学费')
+    group_crawler.add_argument('--gpa', metavar='学年', type=int, const=-1, nargs='?', help='获取学年绩点')
+    group_crawler.add_argument('--credit', metavar='学年', type=int, const=-1, nargs='?', help='获取学年学分')
+    group_crawler.add_argument('--photo', metavar='学号', type=str, const=-1, nargs='?', help='获取学生照片')
     group_crawler.add_argument('--task', action='store_true', help='获取考试安排')
     group_crawler.set_defaults(handle=Crawler().handle)
 
@@ -64,12 +78,8 @@ def cli():
     args = construct_args()
     # print(args)
 
-    if args.drop:
-        piper.drop()
-
-    if args.config:
-        piper.show_config()
-
+    piper.handle_args(args)
+   
     piper.authorize()
 
     if hasattr(args, 'handle'):

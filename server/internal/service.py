@@ -3,6 +3,7 @@ from pytesseract import image_to_string
 from requests import get, post
 from PIL import Image
 from time import time
+from json import dumps
 
 
 URL_CAPTCHA = 'http://jwzx.cqu.pt/createValidationCode.php'
@@ -44,6 +45,13 @@ class Captcha:
                     }).text)
 
 
+def H(code: int, message: str):
+    return dumps({
+        'code': code,
+        'msg': message
+    })
+
+
 class Service:
     def __init__(self):
         self.dao = None
@@ -55,11 +63,11 @@ class Service:
         resp: dict = captcha.request()
         while resp.get('code') != 0:
             if resp.get('info') == '密码错误!':
-                return "wrong password"
+                return H(401, '密码错误')
             if resp.get('info') == '验证码错误':
                 captcha.fetchnew()
                 captcha.crack()
                 resp = captcha.request()
             else:
-                return "Server Error"
-        return "success"
+                return H(500, '服务器走丢啦~')
+        return H(200, '登录成功')

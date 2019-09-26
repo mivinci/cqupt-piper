@@ -10,20 +10,21 @@ class Request:
 
     @staticmethod
     @loading('登录过期, 正在重新请求登录')
-    def login(user: dict, cookie: dict):
+    def login(user: dict, cookie: dict) -> dict:
         user.update(cookie)
         try:
-            post(URL_LOGIN_API, data=user).text
+            return eval(post(URL_LOGIN_API, data=user).text)
         except ConnectionError:
             Log.fatal('服务器走丢啦~')
         except Exception:
             Auth.clear_config()
 
-
-def network_required(target):
-    def target_wrapper(*args, **kwargs):
-        try:
-            target()
-        except ConnectionError:
-            Log.fatal('网络走丢啦~')
-    return target_wrapper
+    @staticmethod
+    def handle_login(resp: dict):
+        if resp.get('code') == 401:
+            print('\n', resp.get('msg'))
+            Auth.update_user()
+        elif resp.get('code') == 200:
+            print('\n\033[92m登录成功\033[0m')
+        else:
+            Log.fatal('\n' + resp.get('msg'))

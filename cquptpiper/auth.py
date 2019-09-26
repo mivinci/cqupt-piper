@@ -1,4 +1,5 @@
 from cquptpiper import PIPER_HOME
+from cquptpiper.log import Log
 from cquptpiper.fs import b64_fwrite, b64_fread
 from time import time
 from getpass import getpass
@@ -8,7 +9,7 @@ from shutil import rmtree
 PATH_PIPER_COOKIE = f'{PIPER_HOME}/cookie'
 PATH_PIPER_USER = f'{PIPER_HOME}/user'
 
-MAX_COOKIE_LIVE = 60 * 15
+MAX_COOKIE_LIVE = 60 * 15  # 15mins
 
 class Auth:
     @classmethod
@@ -61,8 +62,20 @@ class Auth:
         b64_fwrite(PATH_PIPER_USER, user)
 
     @classmethod
-    def enter_user(cls):
+    def add_user(cls):
         print('为确保本人操作, 第一次登录需输入学号密码')
+        return cls.enter_user()
+
+    @classmethod
+    def update_user(cls, message: str = '要更改密码吗?'):
+        if input(f'{message} [y/N]: ') != 'N':
+            cls.enter_user()
+            Log.fatal('更改成功')
+        else:
+            Log.fatal('运行命令 cqupt --auth 可以更改密码哦~')
+
+    @classmethod
+    def enter_user(cls):
         user: dict = {}
         user['userid'] = input('学号: ')
         user['password'] = getpass(prompt='密码: ')
