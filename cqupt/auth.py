@@ -1,6 +1,6 @@
-from cquptpiper import PIPER_HOME
-from cquptpiper.log import Log
-from cquptpiper.fs import b64_fwrite, b64_fread
+from cqupt import PIPER_HOME
+from cqupt.log import Log
+from cqupt.fs import b64_fwrite, b64_fread
 from time import time
 from getpass import getpass
 from os import mkdir, path
@@ -67,7 +67,7 @@ class Auth:
         return cls.enter_user()
 
     @classmethod
-    def update_user(cls, message: str = '要更改密码吗?'):
+    def update_user(cls, message: str = '要更改绑定吗?'):
         if input(f'{message} [y/N]: ') != 'N':
             cls.enter_user()
             Log.fatal('更改成功')

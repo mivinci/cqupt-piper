@@ -1,0 +1,8 @@
+bs4
+flask
+Pillow
+prettytable
+pytesseract
+requests
+gevent
+gunicorn

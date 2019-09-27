@@ -1,9 +1,10 @@
 from requests import post, ConnectionError
-from cquptpiper.log import Log, loading
-from cquptpiper.auth import Auth
+from cqupt.log import Log, loading, Loading
+from cqupt.auth import Auth
 
 
-URL_LOGIN_API = 'http://127.0.0.1:5000/login'
+# URL_LOGIN_API = 'http://127.0.0.1:5000/login'
+URL_LOGIN_API = 'http://47.100.139.100:5000/login'
 
 
 class Request:
@@ -15,9 +16,9 @@ class Request:
         try:
             return eval(post(URL_LOGIN_API, data=user).text)
         except ConnectionError:
-            Log.fatal('服务器走丢啦~')
-        except Exception:
+            Loading.done = True
             Auth.clear_config()
+            Log.fatal('服务器走丢啦~')
 
     @staticmethod
     def handle_login(resp: dict):

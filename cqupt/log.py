@@ -4,7 +4,7 @@ from threading import Thread
 
 
 class Log:
-    prefix = 'cqupt:'
+    prefix = '\ncqupt:'
 
     @classmethod
     def error(cls, message: str):

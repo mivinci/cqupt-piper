@@ -1,8 +1,8 @@
-from cquptpiper.crawler.fee import Fee
-from cquptpiper.crawler.credit import Credit
-from cquptpiper.crawler.gpa import GPA
-from cquptpiper.crawler.task import Task
-from cquptpiper.crawler.photo import Photo
+from cqupt.crawler.fee import Fee
+from cqupt.crawler.credit import Credit
+from cqupt.crawler.gpa import GPA
+from cqupt.crawler.task import Task
+from cqupt.crawler.photo import Photo
 
 
 class Crawler:

@@ -71,3 +71,6 @@ class Service:
             else:
                 return H(500, '服务器走丢啦~')
         return H(200, '登录成功')
+
+    def spy(self, params: dict): pass
+    

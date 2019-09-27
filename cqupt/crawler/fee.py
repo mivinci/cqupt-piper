@@ -1,4 +1,4 @@
-from cquptpiper.urls import URL_FINANCE
+from cqupt.urls import URL_FINANCE
 from prettytable import PrettyTable
 from bs4 import BeautifulSoup
 

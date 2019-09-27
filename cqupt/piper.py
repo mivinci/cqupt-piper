@@ -1,9 +1,9 @@
-from cquptpiper import __version__, __description__
-from cquptpiper.log import Log
-from cquptpiper.auth import Auth
-from cquptpiper.urls import URL_LOGIN
-from cquptpiper.request import Request
-from cquptpiper.crawler import Crawler
+from cqupt import __version__, __description__
+from cqupt.log import Log
+from cqupt.auth import Auth
+from cqupt.urls import URL_LOGIN
+from cqupt.request import Request
+from cqupt.crawler import Crawler
 from argparse import ArgumentParser, SUPPRESS
 from requests import Session, ConnectionError
 
