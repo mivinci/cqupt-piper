@@ -4,7 +4,7 @@ from cqupt import __generation__
 setup(
     name='cqupt',
     version=__generation__,
-    description='Piper is a command line tool to get info from jwzx.cqupt.edu.cn.',
+    description='CQUPT Piper is a command line tool to get info from jwzx.cqupt.edu.cn',
     author='Mivinci XJJ',
     packages=['cqupt'],
     install_requires=[

@@ -6,6 +6,7 @@ from cqupt.request import Request
 from cqupt.crawler import Crawler
 from argparse import ArgumentParser, SUPPRESS
 from requests import Session, ConnectionError
+from sys import argv
 
 
 class Piper:
@@ -79,6 +80,9 @@ def construct_args():
 
 
 def cli():
+    if len(argv) <= 1:
+        exit(0)
+
     piper = Piper()
 
     args = construct_args()

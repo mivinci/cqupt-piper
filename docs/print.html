@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>CQUPTPiper</title>
+        <title>CQUPT Piper</title>
         
         <meta name="robots" content="noindex" />
         
@@ -112,7 +112,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">CQUPTPiper</h1>
+                        <h1 class="menu-title">CQUPT Piper</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -170,7 +170,7 @@
 <p>该工具会在第一次使用时, 要求您输入学号和教务在线的登录密码, 仅仅是为了通过教务在线的身份验证和防止非本校的人使用. 除了您自己的电脑上, 系统不会在任何地方保存您的密码.</p>
 <h2><a class="header" href="#安装" id="安装">安装</a></h2>
 <p>安装前, 确保您的设备已经安装了 Python3+ 和 pip</p>
-<pre><code class="language-bash">pip install cquptpiper
+<pre><code class="language-bash">pip install cqupt
 </code></pre>
 <h2><a class="header" href="#使用" id="使用">使用</a></h2>
 <p>Window 的同学, 打开 CMD 或者 PowerShell  (<a href="https://jingyan.baidu.com/article/3ea51489ee29b652e71bba47.html">不知道怎么打开?</a>)</p>
@@ -194,7 +194,7 @@
 <pre><code class="language-bash">cqupt --auth
 </code></pre>
 <p>按照提示输入即可</p>
-<p>⚠️⚠️<strong>注意</strong> 这样更改的密码只是更改了 CQUPT Piper 里记录的密码, 并不会影响您教务在线的密码.</p>
+<p>⚠️⚠️ 这样更改的密码只是更改了 CQUPT Piper 里记录的密码, 并不会影响您教务在线的密码.</p>
 <h1><a class="header" href="#学费查询" id="学费查询">学费查询</a></h1>
 <h4><a class="header" href="#命令" id="命令">命令</a></h4>
 <pre><code class="language-bash">cqupt --fee &lt;年份&gt;
@@ -263,6 +263,7 @@
 <li>通过在 Github 提交 <a href="https://github.com/mivinci/cqupt-piper/issues">Issue</a> 来提供您对 CQUPT Piper 的意见和建议</li>
 <li>通过联系作者 (QQ: 1366723936) 来表达您对 CQUPT Piper 的不满</li>
 </ul>
+<p>以上两种方式都可以用来告诉作者您希望在 CQUPT Piper 上添加的新功能</p>
 <br/>
 <h4><a class="header" href="#为-cqupt-piper-贡献代码" id="为-cqupt-piper-贡献代码">为 CQUPT Piper 贡献代码</a></h4>
 <ol>
@@ -270,19 +271,19 @@
 <p>fork 仓库 <a href="https://github.com/Mivinci/cqupt-piper">https://github.com/mivinci/cqupt-piper</a></p>
 </li>
 <li>
-<p>Pull request</p>
+<p>Pull requests</p>
 </li>
 </ol>
 <h1><a class="header" href="#日志" id="日志">日志</a></h1>
-<h4><a class="header" href="#2019-9-26" id="2019-9-26">2019-9-26</a></h4>
+<h2><a class="header" href="#2019-9-26" id="2019-9-26">2019-9-26</a></h2>
 <p>完成除<a href="https://github.com/Mivinci/cqupt-piper/tree/master/cquptpiper/crawler">爬虫</a>部分的编码</p>
 <p>完成<a href="https://github.com/mivinci/cqupt-piper/tree/master/server">服务端</a>登录请求部分的编码</p>
-<h4><a class="header" href="#2019-9-25" id="2019-9-25">2019-9-25</a></h4>
+<h2><a class="header" href="#2019-9-25" id="2019-9-25">2019-9-25</a></h2>
 <p>开始简化CQUPT Piper 的使用逻辑, 并创建了 <code>light</code> 分支, 老版本分支在<a href="https://github.com/Mivinci/cqupt-piper/tree/v0.0.1">这儿</a></p>
-<h4><a class="header" href="#2019-9-24" id="2019-9-24">2019-9-24</a></h4>
+<h2><a class="header" href="#2019-9-24" id="2019-9-24">2019-9-24</a></h2>
 <p>选择了第二个解决方案, 并准备重写整个 CQUPT Piper</p>
 <p>原因是方案一所需要的验证码数据集有点难找, 并且我的电脑也不支持这么搞. 方案二虽然需要氪氪金, 登录速度慢, 但比起来比方案一省事儿.</p>
-<h4><a class="header" href="#2019-9-12" id="2019-9-12">2019-9-12</a></h4>
+<h2><a class="header" href="#2019-9-12" id="2019-9-12">2019-9-12</a></h2>
 <p>发现 Window 上不能自动识别教务在线验证码, 原因是 Window 上调用 <code>pytesseract</code> 包时会提示找不到语言识别模型, 这个模型不应该集成在包里了么.</p>
 <p>到这儿有两个选择:</p>
 <ul>
@@ -290,15 +291,15 @@
 <li>把验证码识别过程放到服务器上</li>
 </ul>
 <p>两个都比较麻烦</p>
-<h4><a class="header" href="#2019-9-11" id="2019-9-11">2019-9-11</a></h4>
+<h2><a class="header" href="#2019-9-11" id="2019-9-11">2019-9-11</a></h2>
 <p>完成主要查询功能</p>
-<h4><a class="header" href="#2019-9-不明" id="2019-9-不明">2019-9-不明</a></h4>
+<h2><a class="header" href="#2019-9-不明" id="2019-9-不明">2019-9-不明</a></h2>
 <p>LCM同学跑路</p>
-<h4><a class="header" href="#2019-9-8-晚" id="2019-9-8-晚">2019-9-8 晚</a></h4>
+<h2><a class="header" href="#2019-9-8-晚" id="2019-9-8-晚">2019-9-8 晚</a></h2>
 <p>因作者学业繁忙(滑稽), 将<a href="https://github.com/Meshate">LCM同学</a>拉入项目组完成部分<a href="https://github.com/Mivinci/cqupt-piper/tree/master/cquptpiper/crawler">爬虫</a>编码任务</p>
-<h4><a class="header" href="#2019-9-8" id="2019-9-8">2019-9-8</a></h4>
+<h2><a class="header" href="#2019-9-8" id="2019-9-8">2019-9-8</a></h2>
 <p>完成除<a href="https://github.com/Mivinci/cqupt-piper/tree/master/cquptpiper/crawler">爬虫</a>部分的编码</p>
-<h4><a class="header" href="#2019-9-6" id="2019-9-6">2019-9-6</a></h4>
+<h2><a class="header" href="#2019-9-6" id="2019-9-6">2019-9-6</a></h2>
 <p>产生 CQUPT Piper 的想法</p>
 
                     </main>
