@@ -3,7 +3,7 @@ from cqupt.log import Log
 from cqupt.auth import Auth
 from cqupt.urls import URL_LOGIN
 from cqupt.request import Request
-from cqupt.crawler import Crawler
+from cqupt.crawlers import Crawler
 from argparse import ArgumentParser, SUPPRESS
 from requests import Session, ConnectionError
 from sys import argv
