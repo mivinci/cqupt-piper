@@ -4,6 +4,7 @@ from requests import get, post
 from PIL import Image
 from time import time
 from json import dumps
+from os import remove
 
 
 URL_CAPTCHA = 'http://jwzx.cqu.pt/createValidationCode.php'
@@ -24,6 +25,12 @@ class Captcha:
         with open(self.captcha_path, 'wb') as f:
             f.write(get(URL_CAPTCHA, cookies=self.cookie).content)
 
+    def remove_captcha(self):
+        try:
+            remove(self.captcha_path)
+        except Exception as err:
+            print(err)
+
     def crack(self):
         captcha = Image.open(self.captcha_path)
         text: str = image_to_string(captcha).strip()
@@ -34,6 +41,7 @@ class Captcha:
             text: str = image_to_string(captcha).strip()
             count += 1
         self.captcha_text = text
+        self.remove_captcha()
 
     def request(self) -> dict:
         return eval(post(URL_CAPTCHA_CHECK, 
