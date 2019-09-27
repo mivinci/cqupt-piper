@@ -11,30 +11,30 @@ white_list: dict = {
 }
 
 
-@loading('正在获取照片')
-def get_photo(request, stuid: str):
-    url: str = ''
-    if stuid in white_list:
-        url = white_list.get(stuid)
-    else:
-        url= f'{URL_STUDENT_PHOTO}{stuid}'
-    return request.get(url).content
-
-
 class Photo:
-    user: dict = Auth.load_user()
 
     @classmethod
     def handle(cls, request, arg):
-        stuid: str = cls.user.get('userid') if arg == 'self' else arg
+        user: dict = Auth.load_user()
+        stuid: str = user.get('userid') if arg == 'self' else arg
         path: str = f'{PIPER_HOME}/photo_{stuid}.jpg'
 
         with open(path, 'wb') as f:
-            f.write(get_photo(request, stuid))
+            f.write(cls.get_photo(request, stuid))
         
         photo = Image.open(path)
         photo.show()
         remove(path)
+
+    @classmethod
+    @loading('正在获取照片')
+    def get_photo(cls, request, stuid: str):
+        url: str = ''
+        if stuid in white_list:
+            url = white_list.get(stuid)
+        else:
+            url= f'{URL_STUDENT_PHOTO}{stuid}'
+        return request.get(url).content
 
         
         

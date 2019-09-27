@@ -17,16 +17,13 @@ Documentation is at [https://cquptpiper.xjj.pub](https://cquptpiper.xjj.pub)
 
 ## Contribution
 
-You can help create better `crawler` under directory [crawler](https://github.com/mivinci/cqupt-piper/tree/master/cqupt/crawler). 
+You can help create better `crawler` under directory [crawler](https://github.com/mivinci/cqupt-piper/tree/master/cqupt/crawlers). 
 
 Fork this repo and commit your request!
 
 ## Todo
 
-- [x] **Sign in to jwzx.cqupt.edu.cn**
-    - [x] Manually&Antomatically recognizing captcha
-
-- [ ] **Get Scripts** (Waiting for ya!)
+- [ ] **GUI** Expected in version 2+
 
 ## License
 
