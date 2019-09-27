@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>更改绑定 - CQUPT Piper</title>
+        <title>其他命令 - CQUPT Piper</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="../get_started/auth.html" class="active"><strong aria-hidden="true">1.1.</strong> 更改绑定</a></li><li><a href="../get_started/get_fee.html"><strong aria-hidden="true">1.2.</strong> 学费查询</a></li><li><a href="../get_started/get_credit.html"><strong aria-hidden="true">1.3.</strong> 学分查询</a></li><li><a href="../get_started/get_gpa.html"><strong aria-hidden="true">1.4.</strong> 绩点排名查询</a></li><li><a href="../get_started/get_task.html"><strong aria-hidden="true">1.5.</strong> 考试安排查询</a></li><li><a href="../get_started/get_photo.html"><strong aria-hidden="true">1.6.</strong> 学生照片查询</a></li></ol></li><li><a href="../open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="../open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="../open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="../contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="../log/index.html"><strong aria-hidden="true">4.</strong> 日志</a></li><li><a href="../thanks/index.html"><strong aria-hidden="true">5.</strong> Thanks To</a></li></ol>
+                <ol class="chapter"><li><a href="../get_started/index.html"><strong aria-hidden="true">1.</strong> 快速开始</a></li><li><ol class="section"><li><a href="../get_started/get_fee.html"><strong aria-hidden="true">1.1.</strong> 学费查询</a></li><li><a href="../get_started/get_credit.html"><strong aria-hidden="true">1.2.</strong> 学分查询</a></li><li><a href="../get_started/get_gpa.html"><strong aria-hidden="true">1.3.</strong> 绩点排名查询</a></li><li><a href="../get_started/get_task.html"><strong aria-hidden="true">1.4.</strong> 考试安排查询</a></li><li><a href="../get_started/get_photo.html"><strong aria-hidden="true">1.5.</strong> 学生照片查询</a></li><li><a href="../get_started/other_cmd.html" class="active"><strong aria-hidden="true">1.6.</strong> 其他命令</a></li></ol></li><li><a href="../open_api/index.html"><strong aria-hidden="true">2.</strong> 开放接口</a></li><li><ol class="section"><li><a href="../open_api/login.html"><strong aria-hidden="true">2.1.</strong> 登录</a></li><li><a href="../open_api/crawler.html"><strong aria-hidden="true">2.2.</strong> 爬虫</a></li></ol></li><li><a href="../contribution/index.html"><strong aria-hidden="true">3.</strong> 贡献</a></li><li><a href="../log/index.html"><strong aria-hidden="true">4.</strong> 日志</a></li><li><a href="../thanks/index.html"><strong aria-hidden="true">5.</strong> Thanks To</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -149,25 +149,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#更改绑定" id="更改绑定">更改绑定</a></h1>
-<p><strong>更改绑定的学号</strong>或者<strong>更改当前绑定学号的密码</strong>可执行下面命令</p>
+                        <h1><a class="header" href="#其他命令" id="其他命令">其他命令</a></h1>
+<h2><a class="header" href="#更改绑定" id="更改绑定">更改绑定</a></h2>
 <pre><code class="language-bash">cqupt --auth
 </code></pre>
-<p>按照提示输入即可</p>
+<p><strong>更改绑定的学号</strong>或者<strong>更改当前绑定学号的密码</strong>可执行上面命令, 然后按照提示输入即可</p>
 <p>⚠️⚠️ 这样更改的密码只是更改了 CQUPT Piper 里记录的密码, 并不会影响您教务在线的密码.</p>
+<h2><a class="header" href="#显示绑定的信息" id="显示绑定的信息">显示绑定的信息</a></h2>
+<pre><code class="language-bash">cqupt --whoami
+</code></pre>
+<p>顾名思义, 该命令用来显示已绑定的学号和密码</p>
+<h2><a class="header" href="#清理缓存" id="清理缓存">清理缓存</a></h2>
+<pre><code class="language-bash">cqupt --clear
+</code></pre>
+<p>该命令用来删除保存的上次登录的 Cookie, 使得下次使用需要重新请求登录</p>
+<h2><a class="header" href="#删除配置" id="删除配置">删除配置</a></h2>
+<pre><code class="language-bash">cqupt --drop
+</code></pre>
+<p>该命令用来删除本地 CQUPT Piper 的所有配置文件和绑定的学号, 使得下次使用会要求重新绑定学号</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../get_started/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../get_started/get_photo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../get_started/get_fee.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../open_api/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -179,13 +191,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../get_started/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../get_started/get_photo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../get_started/get_fee.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../open_api/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
