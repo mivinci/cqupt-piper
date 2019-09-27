@@ -16,4 +16,5 @@ URL_FINANCE='http://jwzx.cqu.pt/student/jfInfo.php'
 # 考试安排 #id='stuKsTab-ks'
 URL_TASKS='http://jwzx.cqu.pt/student/ksap.php'
 
-# 学生照片 URL_STUDENT_PHOTO='http://jwzx.cqu.pt/showstupic.php?xh='
+# 学生照片 
+URL_STUDENT_PHOTO='http://jwzx.cqu.pt/showstupic.php?xh='

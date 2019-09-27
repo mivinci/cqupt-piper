@@ -1,4 +1,5 @@
 from internal import SERVER_HOME
+from lib.lib import catch
 from pytesseract import image_to_string
 from requests import get, post
 from PIL import Image
@@ -64,6 +65,7 @@ class Service:
     def __init__(self):
         self.dao = None
 
+    @catch
     def login_jwzx(self, params: dict):
         captcha = Captcha(params)
         captcha.fetchnew()

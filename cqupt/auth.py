@@ -9,7 +9,7 @@ from shutil import rmtree
 PATH_PIPER_COOKIE = f'{PIPER_HOME}/cookie'
 PATH_PIPER_USER = f'{PIPER_HOME}/user'
 
-MAX_COOKIE_LIVE = 60  # 15mins
+MAX_COOKIE_LIVE = 60 * 15  # 15mins
 
 class Auth:
     @classmethod
@@ -26,8 +26,7 @@ class Auth:
         rmtree(PIPER_HOME)
 
     @classmethod
-    def clear_config(cls):
-        # cls.save_user(None)
+    def clear_cookie(cls):
         cls.save_cookie(None)
 
     @classmethod

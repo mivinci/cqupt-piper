@@ -1,12 +1,15 @@
 from cqupt.urls import URL_FINANCE
+from cqupt.log import loading
 from prettytable import PrettyTable
 from bs4 import BeautifulSoup
 
 
 class Fee:
     fee: dict = {}
+    length: int = 0
 
     @classmethod
+    @loading('正在获取学费信息')
     def crawl(cls, request):
         soup = BeautifulSoup(request.get(URL_FINANCE).text, 'html.parser')
         for tr in soup.find('table', {'class', 'pTable'}).findAll('tr')[1:]:
@@ -19,17 +22,19 @@ class Fee:
     @classmethod
     def handle(cls, request, arg):
         cls.crawl(request)
-        row = None
         table = PrettyTable(['学年', '应缴', '已缴', '未缴'])
+
         if arg == -1:
             for _, v in cls.fee.items():
                 table.add_row(v)
-            print(table)
+                cls.length += 1
         else:
-            row = cls.fee.get(str(arg))
-            if row:
-                table.add_row(row)
-                print(table)
-            else:
-                print('无查询结果')
-        print('具体明细，请查询财务处集中收费平台')
+            if str(arg) in cls.fee:
+                table.add_row(cls.fee.get(str(arg)))
+                cls.length += 1
+        
+        if cls.length == 0:
+            print('\n无查询结果!')
+        else:
+            print(table)
+            print('具体明细，请查询财务处集中收费平台')

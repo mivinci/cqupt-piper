@@ -1,4 +1,4 @@
 from pathlib import Path
 
 
-SERVER_HOME = f"{Path.home()}/.piper"
+SERVER_HOME = f"{Path.home()}/.cquptpiper"
