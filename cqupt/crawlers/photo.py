@@ -2,6 +2,7 @@ from cqupt.urls import URL_STUDENT_PHOTO
 from cqupt.auth import Auth
 from cqupt.log import loading
 from cqupt import PIPER_HOME
+from threading import Thread
 from PIL import Image
 from os import remove
 
@@ -22,6 +23,10 @@ class Photo:
         with open(path, 'wb') as f:
             f.write(cls.get_photo(request, stuid))
         
+        Thread(target=cls.show_photo, args=(path,)).start()
+
+    @classmethod
+    def show_photo(cls, path: str):
         photo = Image.open(path)
         photo.show()
         remove(path)

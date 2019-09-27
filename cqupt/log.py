@@ -1,4 +1,5 @@
-from sys import stdout
+from os import system
+from sys import stdout, platform
 from time import sleep
 from threading import Thread
 
@@ -28,8 +29,11 @@ class Loading:
                 cls.curr_i += 1
             else:
                 cls.curr_i = 0
-            print(cls.frames[cls.curr_i], msg)
-            stdout.write("\033[F")
+            if platform == 'win32':
+                print(cls.frames[cls.curr_i], msg, end='\r')
+            else:
+                print(cls.frames[cls.curr_i], msg)
+                stdout.write("\033[F")
             sleep(0.2)
 
 

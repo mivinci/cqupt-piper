@@ -35,4 +35,5 @@ class GPA:
         if cls.length == 0:
             print('\n无查询结果!')
         else:
+            print()
             print(table)

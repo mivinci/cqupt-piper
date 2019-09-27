@@ -36,5 +36,6 @@ class Fee:
         if cls.length == 0:
             print('\n无查询结果!')
         else:
+            print()
             print(table)
             print('具体明细，请查询财务处集中收费平台')
