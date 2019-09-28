@@ -62,7 +62,9 @@ class Auth:
 
     @classmethod
     def add_user(cls):
-        print('为确保本人操作, 第一次登录需输入学号密码')
+        print('为确保本人操作')
+        print('第一次登录需输入学号密码')
+        print('输入密码时不可见, 直接输就行')
         return cls.enter_user()
 
     @classmethod

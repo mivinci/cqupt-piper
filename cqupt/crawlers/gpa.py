@@ -20,7 +20,7 @@ class GPA:
     @classmethod
     def handle(cls, request, arg):
         cls.crawl(request)
-        table = PrettyTable(['学年', '绩点', '排名'])
+        table = PrettyTable(['学期', '绩点', '排名'])
 
         if arg == -1:
             for _, v in cls.gpa.items():

@@ -2,6 +2,7 @@ from cqupt import __version__, __description__
 from cqupt.log import Log
 from cqupt.auth import Auth
 from cqupt.urls import URL_LOGIN
+from cqupt.error import Catch
 from cqupt.request import Request
 from cqupt.crawlers import Crawler
 from argparse import ArgumentParser, SUPPRESS
@@ -62,13 +63,13 @@ def construct_args():
     parser = ArgumentParser(prog='cqupt', description=__description__, )
     parser.add_argument('-v', '--version', action='version', version=__version__)
     
-    group_internal = parser.add_argument_group('内置功能')
+    group_internal = parser.add_argument_group('设置')
     group_internal.add_argument('--auth', action='store_true', help='绑定学号')
     group_internal.add_argument('--drop', action='store_true', help='删除配置')
     group_internal.add_argument('--clear', action='store_true', help='清除缓存')
     group_internal.add_argument('--whoami', action='store_true', help='显示配置')
 
-    group_crawler = parser.add_argument_group('从教务在线获取信息')
+    group_crawler = parser.add_argument_group('教务在线查询')
     group_crawler.add_argument('--fee', metavar='学年', type=int, const=-1, nargs='?', help='获取学年学费')
     group_crawler.add_argument('--gpa', metavar='学年', type=int, const=-1, nargs='?', help='获取学年绩点')
     group_crawler.add_argument('--credit', metavar='学年', type=int, const=-1, nargs='?', help='获取学年学分')
@@ -79,6 +80,8 @@ def construct_args():
     return parser.parse_args()
 
 
+@Catch.all
+@Catch.keyboard_interrupt
 def cli():
     if len(argv) <= 1:
         exit(0)

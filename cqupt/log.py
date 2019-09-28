@@ -8,12 +8,15 @@ class Log:
     prefix = '\ncqupt:'
 
     @classmethod
-    def error(cls, message: str):
-        print(cls.prefix, message)
+    def error(cls, message: str, prog = None):
+        if prog is None:
+            print(cls.prefix, message)
+        else:
+            print('\n' + message)
 
     @classmethod
-    def fatal(cls, message: str = '', status: int = 0):
-        cls.error(message)
+    def fatal(cls, message: str = '', status: int = 0, prog = None):
+        cls.error(message, prog)
         exit(status)
 
 
@@ -47,4 +50,5 @@ def loading(message: str):
             return resp
         return target_wrapper
     return loading_wrraper
+
 
