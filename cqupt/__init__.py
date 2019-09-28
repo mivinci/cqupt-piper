@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 __name__ = 'CQUPT Piper'
-__generation__ = '0.0.11'
+__generation__ = '0.0.12'
 __version__ = f'v{__generation__}-light'
 __author__ = 'XJJ'
 __description__ = f'{__name__} {__version__} @{__author__}'

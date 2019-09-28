@@ -15,6 +15,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'PrettyTable',
+        'Pillow',
         'requests',
         'bs4'
     ],
