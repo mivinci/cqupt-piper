@@ -153,7 +153,7 @@
 <h2><a class="header" href="#2019-9-27" id="2019-9-27">2019-9-27</a></h2>
 <ul>
 <li>
-<p>解决 window 上加载动画的问题</p>
+<p>解决 windows 上加载动画显示不正常的问题</p>
 </li>
 <li>
 <p>发布版本 <code>v0.0.11</code> 到 <a href="https://pypi.org/">PyPI</a>  (别问这10个版本迭代中间发生了什么)</p>
@@ -174,7 +174,7 @@
 <p>选择了第二个解决方案, 并准备重写整个 CQUPT Piper</p>
 <p>原因是方案一所需要的验证码数据集有点难找, 并且我的电脑也不支持这么搞. 方案二虽然需要氪氪金, 登录速度慢, 但比起来比方案一省事儿.</p>
 <h2><a class="header" href="#2019-9-12" id="2019-9-12">2019-9-12</a></h2>
-<p>发现 Window 上不能自动识别教务在线验证码, 原因是 Window 上调用 <code>pytesseract</code> 包时会提示找不到 <code>tesseract</code>, 这个是 Google 的<a href="https://github.com/tesseract-ocr/tesseract">文字识别引擎</a>, 因为不知道是什么时候在自己的电脑上安装了, 所以测试的时候没出现问题</p>
+<p>发现 Windows 上不能自动识别教务在线验证码, 原因是 Window 上调用 <code>pytesseract</code> 包时会提示找不到 <code>tesseract</code>, 这个是 Google 的<a href="https://github.com/tesseract-ocr/tesseract">文字识别引擎</a>, 因为不知道是什么时候在自己的电脑上安装了, 所以测试的时候没出现问题</p>
 <p>到这儿有两个选择:</p>
 <ul>
 <li>自己用<code>tensorflow.keras</code>训练出一个验证码识别的模型</li>

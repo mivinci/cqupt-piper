@@ -175,7 +175,7 @@
 </code></pre>
 <p>安装过程中可能会中断, 多试几次就好. 或者使用将pip源设置为<a href="https://www.jianshu.com/p/37ab4b41f9aa">阿里云镜像</a>)</p>
 <h2><a class="header" href="#使用" id="使用">使用</a></h2>
-<p>Window 的同学, 打开 CMD 或者 PowerShell  (<a href="https://jingyan.baidu.com/article/3ea51489ee29b652e71bba47.html">不知道怎么打开?</a>)</p>
+<p>Windows 的同学, 打开 CMD 或者 PowerShell  (<a href="https://jingyan.baidu.com/article/3ea51489ee29b652e71bba47.html">不知道怎么打开?</a>)</p>
 <p>MacOS 和 Linux 的同学随你怎么搞</p>
 <h4><a class="header" href="#查询学费" id="查询学费">查询学费</a></h4>
 <pre><code class="language-bash">cqupt --fee 2019
@@ -191,6 +191,12 @@
 <p>执行下面命令, 可查看更多使用方法</p>
 <pre><code class="language-bash">cqupt -h
 </code></pre>
+<br/>
+<h2><a class="header" href="#报错解决方案" id="报错解决方案">报错解决方案</a></h2>
+<p>目前更新的版本中, 大多数使用过程中出现的错误可以通过执行下面命令解决</p>
+<pre><code class="language-bash">cqupt --clear
+</code></pre>
+<p>问题解决与否, 都<a href="https://cquptpiper.xjj.pub/contribution/index.html">向作者反馈出现的问题</a></p>
 <h1><a class="header" href="#学费查询" id="学费查询">学费查询</a></h1>
 <h4><a class="header" href="#命令" id="命令">命令</a></h4>
 <pre><code class="language-bash">cqupt --fee &lt;年份&gt;
@@ -293,7 +299,7 @@
 <h2><a class="header" href="#2019-9-27" id="2019-9-27">2019-9-27</a></h2>
 <ul>
 <li>
-<p>解决 window 上加载动画的问题</p>
+<p>解决 windows 上加载动画显示不正常的问题</p>
 </li>
 <li>
 <p>发布版本 <code>v0.0.11</code> 到 <a href="https://pypi.org/">PyPI</a>  (别问这10个版本迭代中间发生了什么)</p>
@@ -314,7 +320,7 @@
 <p>选择了第二个解决方案, 并准备重写整个 CQUPT Piper</p>
 <p>原因是方案一所需要的验证码数据集有点难找, 并且我的电脑也不支持这么搞. 方案二虽然需要氪氪金, 登录速度慢, 但比起来比方案一省事儿.</p>
 <h2><a class="header" href="#2019-9-12" id="2019-9-12">2019-9-12</a></h2>
-<p>发现 Window 上不能自动识别教务在线验证码, 原因是 Window 上调用 <code>pytesseract</code> 包时会提示找不到 <code>tesseract</code>, 这个是 Google 的<a href="https://github.com/tesseract-ocr/tesseract">文字识别引擎</a>, 因为不知道是什么时候在自己的电脑上安装了, 所以测试的时候没出现问题</p>
+<p>发现 Windows 上不能自动识别教务在线验证码, 原因是 Window 上调用 <code>pytesseract</code> 包时会提示找不到 <code>tesseract</code>, 这个是 Google 的<a href="https://github.com/tesseract-ocr/tesseract">文字识别引擎</a>, 因为不知道是什么时候在自己的电脑上安装了, 所以测试的时候没出现问题</p>
 <p>到这儿有两个选择:</p>
 <ul>
 <li>自己用<code>tensorflow.keras</code>训练出一个验证码识别的模型</li>
