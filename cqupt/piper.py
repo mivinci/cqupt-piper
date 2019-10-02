@@ -64,9 +64,9 @@ def construct_args():
     parser.add_argument('-v', '--version', action='version', version=__version__)
     
     group_internal = parser.add_argument_group('设置')
-    group_internal.add_argument('--auth', action='store_true', help='绑定学号')
-    group_internal.add_argument('--drop', action='store_true', help='删除配置')
-    group_internal.add_argument('--clear', action='store_true', help='清除缓存')
+    group_internal.add_argument('-a', '--auth', action='store_true', help='绑定学号')
+    group_internal.add_argument('-d', '--drop', action='store_true', help='删除配置')
+    group_internal.add_argument('-c', '--clear', action='store_true', help='清除缓存')
     group_internal.add_argument('--whoami', action='store_true', help='显示配置')
 
     group_crawler = parser.add_argument_group('教务在线查询')
@@ -99,4 +99,4 @@ def cli():
         args.handle(piper, args)
     else:
         print('help')
-    
+
