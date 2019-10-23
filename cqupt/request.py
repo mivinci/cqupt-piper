@@ -31,3 +31,5 @@ class Request:
         else:
             Auth.clear_cookie()
             Log.fatal(resp.get('msg'))
+
+
