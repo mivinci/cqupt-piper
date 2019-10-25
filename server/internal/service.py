@@ -21,6 +21,7 @@ class Captcha:
         self.cookie: dict = {'PHPSESSID': self.phpsessid}
         self.captcha_path: str = f"{SERVER_HOME}/captcha_{self.userid}_{int(time())}.jpg"
         self.captcha_text: str = ''
+        print(self.params)
 
     def fetchnew(self):
         with open(self.captcha_path, 'wb') as f:

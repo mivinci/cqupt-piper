@@ -2,18 +2,20 @@ from PIL import Image
 import pytesseract
 import requests
 
-URL_LOGIN = 'http://jwzx.cqu.pt/login.php'
-URL_CAPTCHA = 'http://jwzx.cqu.pt/createValidationCode.php'
-URL_CHECK_LOGIN = 'http://jwzx.cqu.pt/checkLogin.php'
+URL_LOGIN = 'http://jwzx.cquptx.cn/login.php'
+URL_CAPTCHA = 'http://jwzx.cquptx.cn/createValidationCode.php'
+URL_CHECK_LOGIN = 'http://jwzx.cquptx.cn/checkLogin.php'
 
-URL_RANKS = 'http://jwzx.cqu.pt/student/chengjiPm.php'
-URL_STUDENT_PHOTO = 'http://jwzx.cqu.pt/showstupic.php?xh={stu_id}'
+URL_RANKS = 'http://jwzx.cquptx.cn/student/chengjiPm.php'
+URL_STUDENT_PHOTO = 'http://jwzx.cquptx.cn/showstupic.php?xh={stu_id}'
 
 FILENAME_CAPTCHA = 'captcha.png'
 
 s = requests.Session()
 
 s.get(URL_LOGIN)
+
+print(s.cookies)
 
 
 def crack_captcha():
@@ -49,3 +51,4 @@ print(eval(resp.text)['info'])
 stu_id = '2017213051'
 with open(f"{stu_id}.png", 'wb') as f:
     f.write(s.get(URL_STUDENT_PHOTO.format(stu_id=stu_id)).content)
+

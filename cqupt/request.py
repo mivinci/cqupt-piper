@@ -3,8 +3,8 @@ from cqupt.log import Log, loading, Loading
 from cqupt.auth import Auth
 
 
-# URL_LOGIN_API = 'http://127.0.0.1:5000/login'
-URL_LOGIN_API = 'http://47.100.139.100:5000/login'
+URL_LOGIN_API = 'http://127.0.0.1:5000/login'
+# URL_LOGIN_API = 'http://47.100.139.100:5000/login'
 
 
 class Request:
