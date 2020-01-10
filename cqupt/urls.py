@@ -1,4 +1,4 @@
-URL_BASE='http://jwzx.cquptx.cn'
+URL_BASE='http://jwzx.cqupt.icu'
 
 URL_LOGIN=f'{URL_BASE}/login.php'
 URL_CAPTCHA=f'{URL_BASE}/createValidationCode.php'

@@ -28,7 +28,7 @@ class Piper:
                 Log.fatal('网络走丢啦~')
             
             self.cookie = self.session.cookies.get_dict()
-            print(self.cookie)
+            # print(self.cookie)
             Auth.save_cookie(self.cookie)
             Request.handle_login(Request.login(self.user, self.cookie))
         else:

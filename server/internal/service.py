@@ -1,15 +1,15 @@
 from internal import SERVER_HOME
-from lib.lib import catch
+# from lib.lib import catch
 from pytesseract import image_to_string
 from requests import get, post
 from PIL import Image
 from time import time
-from json import dumps
+from json import dumps, loads
 from os import remove
 
 
-URL_CAPTCHA = 'http://jwzx.cquptx.cn/createValidationCode.php'
-URL_CAPTCHA_CHECK = 'http://jwzx.cquptx.cn/checkLogin.php'
+URL_CAPTCHA = 'http://jwzx.cqupt.icu/createValidationCode.php'
+URL_CAPTCHA_CHECK = 'http://jwzx.cqupt.icu/checkLogin.php'
 
 
 class Captcha:
@@ -46,7 +46,7 @@ class Captcha:
         self.remove_captcha()
 
     def request(self) -> dict:
-        return eval(post(URL_CAPTCHA_CHECK, 
+        return loads(post(URL_CAPTCHA_CHECK, 
                     cookies=self.cookie,
                     data={
                         'name': self.userid,
@@ -66,7 +66,7 @@ class Service:
     def __init__(self):
         self.dao = None
 
-    @catch
+    # @catch
     def login_jwzx(self, params: dict):
         captcha = Captcha(params)
         captcha.fetchnew()

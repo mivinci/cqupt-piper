@@ -12,7 +12,7 @@ class Log:
         if prog is None:
             print(cls.prefix, message)
         else:
-            print('\n' + message)
+            print(message)
 
     @classmethod
     def fatal(cls, message: str = '', status: int = 0, prog = None):
