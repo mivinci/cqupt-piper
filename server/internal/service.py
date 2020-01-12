@@ -8,8 +8,8 @@ from json import dumps, loads
 from os import remove
 
 
-URL_CAPTCHA = 'http://jwzx.cqupt.icu/createValidationCode.php'
-URL_CAPTCHA_CHECK = 'http://jwzx.cqupt.icu/checkLogin.php'
+URL_CAPTCHA = 'http://jwzx1.cqupt.icu/createValidationCode.php'
+URL_CAPTCHA_CHECK = 'http://jwzx1.cqupt.icu/checkLogin.php'
 
 
 class Captcha:
