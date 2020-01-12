@@ -1,6 +1,7 @@
 from requests import post, ConnectionError
 from cqupt.log import Log, loading, Loading
 from cqupt.auth import Auth
+from json import loads
 
 
 # URL_LOGIN_API = 'http://127.0.0.1:5000/login'
@@ -14,7 +15,7 @@ class Request:
     def login(user: dict, cookie: dict) -> dict:
         user.update(cookie)
         try:
-            return eval(post(URL_LOGIN_API, data=user).text)
+            return loads(post(URL_LOGIN_API, data=user).text)
         except ConnectionError:
             Loading.done = True
             Auth.clear_cookie()
